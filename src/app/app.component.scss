@@ -1,0 +1,20 @@
+.active {
+  border-left: 8px solid var(--ion-color-primary);
+  --ion-text-color: var(--ion-color-primary);
+  ion-icon {
+    --ion-text-color-rgb: var(--ion-color-primary);
+  }
+}
+
+ion-content {
+  /* These examples use the same color: sienna. */
+  --ion-text-color:             #000000;
+  --ion-text-color-rgb:         0,0,0;
+
+  /* These examples use the same color: lightsteelblue. */
+  --ion-background-color:       #c9d1d3;
+  --ion-background-color-rgb:   201,209,211;
+
+  //REMEMBER TO SET THIS AND OTHER VARIABLES
+  //--ion-border-color: #778899;
+}
