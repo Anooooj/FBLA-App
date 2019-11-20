@@ -15,6 +15,10 @@ export class WelcomePage implements OnInit {
     this.menuCtrl.enable(false);
   }
 
+  showMenu() {
+    this.menuCtrl.enable(true);
+  }
+
   ngOnInit() {
   }
 
