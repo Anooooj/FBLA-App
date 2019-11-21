@@ -14,11 +14,7 @@ export class WelcomePage implements OnInit {
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
   }
-
-  showMenu() {
-    this.menuCtrl.enable(true);
-  }
-
+  
   ngOnInit() {
   }
 
