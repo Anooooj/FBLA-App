@@ -7,3 +7,27 @@ ion-content {
   //REMEMBER TO SET THIS AND OTHER VARIABLES
   //--ion-border-color: #778899;
 }
+
+.title {
+  padding-top: 3em;
+  p {
+    margin: 0;
+    padding: 0;
+    font-family: verdana;
+    font-size: 50px;
+    font-weight: 500px;
+  }
+}
+
+.content {
+  padding-top: 3em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+ion-card {
+  padding-top: .5em;
+  padding-bottom: 1em;
+  ion-card-content {
+    padding-top: 1.5em;
+  }
+}
