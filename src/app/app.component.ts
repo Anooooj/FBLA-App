@@ -23,6 +23,16 @@ export class AppComponent {
       icon: 'list'
     },
     {
+      title: 'About',
+      url: '/about',
+      icon: 'about'
+    },
+    {
+      title: 'Chapter Information',
+      url: '/chapter',
+      icon: ''
+    },
+    {
       title: 'Settings',
       url: '/settings',
       icon: 'settings'
