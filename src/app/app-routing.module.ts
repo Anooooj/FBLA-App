@@ -22,11 +22,15 @@ const routes: Routes = [
   {
     path: 'welcome',
     loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule)
-  },  {
+  },
+  {
     path: 'about',
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'chapter',
+    loadChildren: () => import('./chapter/chapter.module').then( m => m.ChapterPageModule)
   }
-
 ];
 
 @NgModule({
