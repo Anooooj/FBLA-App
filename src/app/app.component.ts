@@ -33,6 +33,11 @@ export class AppComponent {
       icon: ''
     },
     {
+      title: 'Calendar',
+      url: '/calendar',
+      icon: ''
+    },
+    {
       title: 'Settings',
       url: '/settings',
       icon: 'settings'
