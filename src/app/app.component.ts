@@ -35,7 +35,7 @@ export class AppComponent {
     {
       title: 'Calendar',
       url: '/calendar',
-      icon: ''
+      icon: 'calendar'
     },
     {
       title: 'Settings',
