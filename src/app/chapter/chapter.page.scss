@@ -4,24 +4,18 @@ ion-content {
   --ion-background-color:       #c9d1d3;
   --ion-background-color-rgb:   201,209,211;
 
-.vertical-align{
-  display: flex;
-  align-items: center;
-  align-content: center;
-}
+
 
 .content {
   max-width: 500px;
   height: 50px;
   margin: auto;
-  vertical-align: middle;
 }
 
 button {
   width: 500px;
   height: 50px;
   background-color: inherit;
-  vertical-align: middle;
 }
   //REMEMBER TO SET THIS AND OTHER VARIABLES
   //--ion-border-color: #778899;
