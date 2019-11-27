@@ -20,7 +20,7 @@
         <ion-card-title>FBLA Sign Up</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-button [routerDirection]="'root'" [routerLink]="'[../settings]'" routerLinkActive="active" color="primary" size="large" fill="solid">Join</ion-button>
+        <ion-button (click)="openDetailsWithService()" color="primary" size="large" fill="solid">Join</ion-button>
       </ion-card-content>
       <ion-card-header>
         <ion-card-subtitle>Sign up for FBLA through a form.</ion-card-subtitle>

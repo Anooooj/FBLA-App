@@ -3,6 +3,7 @@ import { Component, ViewChild, OnInit, Inject, LOCALE_ID } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
 import { NavController } from '@ionic/angular';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -32,9 +33,11 @@ export class CalendarPage implements OnInit {
 
   @ViewChild(CalendarComponent, {static: false}) myCal: CalendarComponent;
 
-  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string, public navCtrl: NavController) { }
+  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string, public navCtrl: NavController, private dataService: DataService) { }
 
   ngOnInit() {
+    this.eventSource = this.dataService.getEvents();
+    //this.myCal.loadEvents();
     this.resetEvent();
   }
 
@@ -66,7 +69,8 @@ export class CalendarPage implements OnInit {
       eventCopy.endTime = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), end.getUTCDate() + 1));
     }
 
-    this.eventSource.push(eventCopy);
+    this.dataService.addEvent(eventCopy);
+    this.eventSource = this.dataService.getEvents();
     this.myCal.loadEvents();
     this.resetEvent();
   }
