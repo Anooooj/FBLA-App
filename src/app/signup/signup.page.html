@@ -1,0 +1,186 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+
+<ion-item>
+  <ion-label position="floating">Your First Name</ion-label>
+  <ion-input></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Your Middle Name</ion-label>
+  <ion-input></ion-input>
+</ion-item>
+
+
+<ion-item>
+  <ion-label position="floating">Your Last Name</ion-label>
+  <ion-input></ion-input>
+</ion-item>
+
+<!-- Readonly input -->
+<ion-input value="Gender" readonly></ion-input><ion-item>
+<ion-button color="primary">Male</ion-button>
+<ion-button color="primary">Female</ion-button>
+  <ion-label position="floating">enthic background</ion-label>
+  <ion-input></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">email address</ion-label>
+  <ion-input></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Grade</ion-label>
+  <ion-input></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Years of Experience</ion-label>
+  <ion-input></ion-input>
+</ion-item>
+<!-- Default -->
+<ion-button>Default</ion-button>
+
+<!-- Anchor -->
+<ion-button href="#">Anchor</ion-button>
+
+<!-- Colors -->
+<ion-button color="primary">Primary</ion-button>
+<ion-button color="secondary">Secondary</ion-button>
+<ion-button color="tertiary">Tertiary</ion-button>
+<ion-button color="success">Success</ion-button>
+<ion-button color="warning">Warning</ion-button>
+<ion-button color="danger">Danger</ion-button>
+<ion-button color="light">Light</ion-button>
+<ion-button color="medium">Medium</ion-button>
+<ion-button color="dark">Dark</ion-button>
+
+<!-- Expand -->
+<ion-button expand="full">Full Button</ion-button>
+<ion-button expand="block">Block Button</ion-button>
+
+<!-- Round -->
+<ion-button shape="round">Round Button</ion-button>
+
+<!-- Fill -->
+<ion-button expand="full" fill="outline">Outline + Full</ion-button>
+<ion-button expand="block" fill="outline">Outline + Block</ion-button>
+<ion-button shape="round" fill="outline">Outline + Round</ion-button>
+
+<!-- Icons -->
+<ion-button>
+  <ion-icon slot="start" name="star"></ion-icon>
+  Left Icon
+</ion-button>
+
+<ion-button>
+  Right Icon
+  <ion-icon slot="end" name="star"></ion-icon>
+</ion-button>
+
+<ion-button>
+  <ion-icon slot="icon-only" name="star"></ion-icon>
+</ion-button>
+
+<!-- Sizes -->
+<ion-button size="large">Large</ion-button>
+<ion-button>Default</ion-button>
+<ion-button size="small">Small</ion-button>
+<ion-fab vertical="bottom" horizontal="end">
+  <ion-fab-button>Share</ion-fab-button>
+
+  <ion-fab-list side="top">
+    <ion-fab-button>Facebook</ion-fab-button>
+    <ion-fab-button>Twitter</ion-fab-button>
+    <ion-fab-button>Youtube</ion-fab-button>
+  </ion-fab-list>
+
+  <ion-fab-list side="start">
+    <ion-fab-button>Vimeo</ion-fab-button>
+  </ion-fab-list>
+
+</ion-fab>
+<!-- fab placed to the top end -->
+ <ion-fab vertical="top" horizontal="end" slot="fixed">
+   <ion-fab-button>
+     <ion-icon name="add"></ion-icon>
+   </ion-fab-button>
+ </ion-fab>
+
+ <!-- fab placed to the bottom end -->
+ <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+   <ion-fab-button>
+     <ion-icon name="arrow-dropleft"></ion-icon>
+   </ion-fab-button>
+ </ion-fab>
+
+ <!-- fab placed to the top start -->
+ <ion-fab vertical="top" horizontal="start" slot="fixed">
+   <ion-fab-button>
+     <ion-icon name="arrow-dropright"></ion-icon>
+   </ion-fab-button>
+ </ion-fab>
+
+ <!-- fab placed to the bottom start -->
+ <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+   <ion-fab-button>
+     <ion-icon name="arrow-dropup"></ion-icon>
+   </ion-fab-button>
+ </ion-fab>
+
+ <!-- fab placed to the (vertical) center and start -->
+ <ion-fab vertical="center" horizontal="start" slot="fixed">
+   <ion-fab-button>
+     <ion-icon name="share"></ion-icon>
+   </ion-fab-button>
+ </ion-fab>
+
+ <!-- fab placed to the (vertical) center and end -->
+ <ion-fab vertical="center" horizontal="end" slot="fixed">
+   <ion-fab-button>
+     <ion-icon name="add"></ion-icon>
+   </ion-fab-button>
+ </ion-fab>
+
+ <!-- fab placed to the top and end and on the top edge of the content overlapping header -->
+ <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+   <ion-fab-button>
+     <ion-icon name="person"></ion-icon>
+   </ion-fab-button>
+ </ion-fab>
+
+ <!-- fab placed to the bottom and start and on the bottom edge of the content overlapping footer with a list to the right -->
+ <ion-fab vertical="bottom" horizontal="start" edge slot="fixed">
+   <ion-fab-button>
+     <ion-icon name="settings"></ion-icon>
+   </ion-fab-button>
+   <ion-fab-list side="end">
+     <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
+   </ion-fab-list>
+ </ion-fab>
+
+ <!-- fab placed in the center of the content with a list on each side -->
+ <ion-fab vertical="center" horizontal="center" slot="fixed">
+   <ion-fab-button>
+     <ion-icon name="share"></ion-icon>
+   </ion-fab-button>
+   <ion-fab-list side="top">
+     <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
+   </ion-fab-list>
+   <ion-fab-list side="bottom">
+     <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+   </ion-fab-list>
+   <ion-fab-list side="start">
+     <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+   </ion-fab-list>
+   <ion-fab-list side="end">
+     <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+   </ion-fab-list>
+ </ion-fab>
+</ion-content>
