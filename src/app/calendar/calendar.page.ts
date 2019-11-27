@@ -2,12 +2,14 @@ import { CalendarComponent } from 'ionic2-calendar/calendar';
 import { Component, ViewChild, OnInit, Inject, LOCALE_ID } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'calendar.page.html',
   styleUrls: ['calendar.page.scss'],
 })
+
 export class CalendarPage implements OnInit {
 
   event = {
@@ -30,7 +32,7 @@ export class CalendarPage implements OnInit {
 
   @ViewChild(CalendarComponent, {static: false}) myCal: CalendarComponent;
 
-  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) { }
+  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string, public navCtrl: NavController) { }
 
   ngOnInit() {
     this.resetEvent();
@@ -104,7 +106,15 @@ export class CalendarPage implements OnInit {
      header: event.title,
      subHeader: event.desc,
      message: 'From: ' + start + '<br><br>To: ' + end,
-     buttons: ['OK']
+     buttons: [
+       {
+         text: 'Sign Up',
+         handler: () => {
+           this.navCtrl.navigateForward('eventsignup');
+         }
+       },
+       'Close'
+     ]
    });
    alert.present();
   }
