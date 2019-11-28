@@ -11,7 +11,7 @@ export class SignupPage implements OnInit {
 
   myForm: FormGroup;
 
-
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.myForm = this.fb.group({
@@ -19,10 +19,12 @@ export class SignupPage implements OnInit {
       message: ''
     })
   }
-
-    constructor(private fb: FormBuilder) { }
-
   registrationForm = this.formBuilder.group
+
+
+
+
+
 
 
 }
