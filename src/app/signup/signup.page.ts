@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormBuilder } from '@angular/forms'
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -7,20 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupPage implements OnInit {
 
-  constructor() { }
+
+
+  myForm: FormGroup;
+
+
 
   ngOnInit() {
-  }
-  openItem(item) {
-    this.selectedItem = item;
+    this.myForm = this.fb.group({
+      email: '',
+      message: ''
+    })
   }
 
-  buttonClicked(i) {
-    if (this.items[i].status == "present") {
-      this.items[i].status = "not present";
-    }
-    else {
-      this.items[i].status = "present";
-    }
-  }
+    constructor(private fb: FormBuilder) { }
+
+  registrationForm = this.formBuilder.group
+
+
 }
