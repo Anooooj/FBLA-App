@@ -45,20 +45,6 @@ const routes: Routes = [
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
   },
   {
-    path: 'details/:id',
-    resolve: {
-      special: DataResolverService
-    },
-    loadChildren: './details/details.module#DetailsPageModule'
-  },
-  {
-    path: 'calendar/:id',
-    resolve: {
-      special: DataResolverService
-    },
-    loadChildren: './calendar/calendar.module#CalendarPageModule'
-  },
-  {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
   }
