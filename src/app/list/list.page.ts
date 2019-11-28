@@ -1,3 +1,4 @@
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -7,16 +8,10 @@ import { DataService } from '../services/data.service';
 })
 export class ListPage implements OnInit {
   private selectedItem: any;
-  public items: Array<{ name: string }> = [];
+
+  public items: Array<{ title: string; note: string }> = [];
   constructor(private dataService: DataService) {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
-    this.dataService.getMembers();
+    this.items = dataService.getMembers();
   }
 
   ngOnInit() {
@@ -25,4 +20,8 @@ export class ListPage implements OnInit {
   // navigate(item) {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
   // }
+
+  clicked() {
+    
+  }
 }
