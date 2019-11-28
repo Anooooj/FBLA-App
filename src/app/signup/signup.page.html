@@ -26,66 +26,72 @@
 </ion-item>
 
 <!-- Readonly input -->
-<ion-input value="Gender" readonly></ion-input><ion-item>
-<ion-button (click) = "btnClicked()">
-  Male
-</ion-button>
-<ion-button color="primary">Female</ion-button>
+<ion-list>
+  <ion-radio-group>
+    <ion-list-header>
+      <ion-label>Biological gender</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Male</ion-label>
+      <ion-radio slot="start" value="Male" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Female</ion-label>
+      <ion-radio slot="start" value="Female"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
   <ion-label position="floating">enthic background</ion-label>
   <ion-input></ion-input>
-</ion-item>
+
 <ion-item>
   <ion-label position="floating">email address</ion-label>
   <ion-input></ion-input>
 </ion-item>
-<ion-item>
-  <ion-label position="floating">Grade</ion-label>
-  <ion-input></ion-input>
-</ion-item>
+<ion-list>
+  <ion-radio-group>
+    <ion-list-header>
+      <ion-label>Grade Level</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>9th grade</ion-label>
+      <ion-radio slot="start" value="9" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>10th grade</ion-label>
+      <ion-radio slot="start" value="10"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>11th grade</ion-label>
+      <ion-radio slot="start" value="11" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>12th grade</ion-label>
+      <ion-radio slot="start" value="12"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
 <ion-item>
   <ion-label position="floating">Years of Experience</ion-label>
   <ion-input></ion-input>
 </ion-item>
 <!-- Default -->
-<ion-button>Default</ion-button>
+<ion-button>Submit</ion-button>
 
-<!-- Anchor -->
-<ion-button href="#">Anchor</ion-button>
-
-<!-- Colors -->
-<ion-button color="primary">Primary</ion-button>
-<ion-button color="secondary">Secondary</ion-button>
-<ion-button color="tertiary">Tertiary</ion-button>
-<ion-button color="success">Success</ion-button>
-<ion-button color="warning">Warning</ion-button>
-<ion-button color="danger">Danger</ion-button>
-<ion-button color="light">Light</ion-button>
-<ion-button color="medium">Medium</ion-button>
-<ion-button color="dark">Dark</ion-button>
-
-<!-- Expand -->
-<ion-button expand="full">Full Button</ion-button>
-<ion-button expand="block">Block Button</ion-button>
-
-<!-- Round -->
-<ion-button shape="round">Round Button</ion-button>
-
-<!-- Fill -->
-<ion-button expand="full" fill="outline">Outline + Full</ion-button>
-<ion-button expand="block" fill="outline">Outline + Block</ion-button>
-<ion-button shape="round" fill="outline">Outline + Round</ion-button>
-
-<!-- Icons -->
-<ion-button>
-  <ion-icon slot="start" name="star"></ion-icon>
-  Left Icon
-</ion-button>
-
-<ion-button>
-  Right Icon
-  <ion-icon slot="end" name="star"></ion-icon>
-</ion-button>
-
-<ion-button>
-  <ion-icon slot="icon-only" name="star"></ion-icon>
-</ion-button>
+<ion-list>
+  <ion-item *ngFor="let item of items; let i = index" (click)="openItem()">
+    <ion-icon color="primary" name="person" slot="start"></ion-icon>
+    {{item.name}}
+    <div class="item-note" slot="end">
+      {{item.note}}
+    </div>
+    <ion-button slot="end" fill="clear" color="dark" (click)="buttonClicked(i)">
+      <p> {{item.status}} </p>
+    </ion-button>
+  </ion-item>
+</ion-list>
