@@ -32,7 +32,7 @@ export class ListPage implements OnInit {
     else {
       this.items[i].status = "present";
     }
-    this.dataService.setCurrentGenericAttendance(items);
+    this.dataService.setCurrentGenericAttendance(this.items);
   }
 
 
