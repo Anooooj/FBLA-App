@@ -9,12 +9,11 @@ import { DataService } from '../services/data.service';
 export class ListPage implements OnInit {
   private selectedItem: any;
 
-  public items: Array<{ name: string; note: string; status: string}> = [];
+  public items: Array<{ name: string; status: string}> = [];
   constructor(private dataService: DataService) {
     dataService.getMembers().forEach(element => {
       this.items.push({
         name: element.name,
-        note: element.note,
         status: "not present"
       });
     });

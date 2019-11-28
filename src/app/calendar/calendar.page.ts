@@ -106,21 +106,57 @@ export class CalendarPage implements OnInit {
    let start = formatDate(event.startTime, 'medium', this.locale);
    let end = formatDate(event.endTime, 'medium', this.locale);
 
-   const alert = await this.alertCtrl.create({
-     header: event.title,
-     subHeader: event.desc,
-     message: 'From: ' + start + '<br><br>To: ' + end,
-     buttons: [
-       {
-         text: 'Sign Up',
-         handler: () => {
-           this.navCtrl.navigateForward('eventsignup');
-         }
-       },
-       'Close'
-     ]
+   var index = -1;
+   for (let i = 0; i < this.dataService.getEvents().length; i++) {
+     if (this.dataService.getEvents()[i].title == event.title) {
+       index = i;
+     }
+   }
+   var signedup = false;
+   this.dataService.getAttendance().forEach(element => {
+     if (element[0] == index) {
+       if (element[1] == this.dataService.getCurrentUser().id) {
+         signedup = true;
+       }
+     }
    });
-   alert.present();
+
+   if (signedup == false) {
+     const alert = await this.alertCtrl.create({
+       header: event.title,
+       subHeader: event.desc,
+       message: 'From: ' + start + '<br><br>To: ' + end,
+       buttons: [
+         {
+           text: 'Sign Up',
+           handler: () => {
+             this.dataService.addAttendee(index, this.dataService.getCurrentUser().id);
+             //this.navCtrl.navigateForward('eventsignup');
+           }
+         },
+         'Close'
+       ]
+     });
+     alert.present();
+   }
+   else {
+     const alert = await this.alertCtrl.create({
+       header: event.title,
+       subHeader: event.desc,
+       message: 'From: ' + start + '<br><br>To: ' + end,
+       buttons: [
+         {
+           text: 'Sign Out',
+           handler: () => {
+             //this.navCtrl.navigateForward('eventsignup');
+             this.dataService.removeAttendee(index, this.dataService.getCurrentUser().id);
+           }
+         },
+         'Close'
+       ]
+     });
+     alert.present();
+   }
   }
 
   // Time slot was clicked
