@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -11,16 +12,5 @@ export class SignupPage implements OnInit {
 
   ngOnInit() {
   }
-  openItem(item) {
-    this.selectedItem = item;
-  }
 
-  buttonClicked(i) {
-    if (this.items[i].status == "present") {
-      this.items[i].status = "not present";
-    }
-    else {
-      this.items[i].status = "present";
-    }
-  }
 }
