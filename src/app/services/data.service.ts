@@ -7,7 +7,20 @@ export class DataService {
 
   private data = [];
   private events = [];
-  private members = [];
+  private members = [
+    {
+      name: "Anuj Patel",
+      note: "app creator"
+    },
+    {
+      name: "Anuj Patel",
+      note: "app creator"
+    },
+    {
+      name: "Anuj Patel",
+      note: "app creator"
+    }
+  ];
 
   constructor() { }
 
