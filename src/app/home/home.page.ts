@@ -14,8 +14,4 @@ export class HomePage {
   ngOnInit() {
   }
 
-  openDetailsWithService() {
-    this.dataService.setData(0, this.user);
-    this.router.navigateByUrl('/details/0');
-  }
 }
