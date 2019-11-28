@@ -13,19 +13,14 @@
   <ion-label position="floating">Your First Name</ion-label>
   <ion-input></ion-input>
 </ion-item>
-
-<ion-item>
-  <ion-label position="floating">Your Middle Name</ion-label>
-  <ion-input></ion-input>
-</ion-item>
-
-
 <ion-item>
   <ion-label position="floating">Your Last Name</ion-label>
   <ion-input></ion-input>
 </ion-item>
-
-<!-- Readonly input -->
+<ion-item>
+  <ion-label position="floating">email address</ion-label>
+  <ion-input></ion-input>
+</ion-item>
 <ion-list>
   <ion-radio-group>
     <ion-list-header>
@@ -43,13 +38,7 @@
     </ion-item>
   </ion-radio-group>
 </ion-list>
-  <ion-label position="floating">enthic background</ion-label>
-  <ion-input></ion-input>
 
-<ion-item>
-  <ion-label position="floating">email address</ion-label>
-  <ion-input></ion-input>
-</ion-item>
 <ion-list>
   <ion-radio-group>
     <ion-list-header>
@@ -76,10 +65,32 @@
     </ion-item>
   </ion-radio-group>
 </ion-list>
-<ion-item>
-  <ion-label position="floating">Years of Experience</ion-label>
-  <ion-input></ion-input>
-</ion-item>
+<ion-list>
+  <ion-radio-group>
+    <ion-list-header>
+      <ion-label>Years of experience</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>0</ion-label>
+      <ion-radio slot="start" value="0" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>1</ion-label>
+      <ion-radio slot="start" value="1"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>2</ion-label>
+      <ion-radio slot="start" value="2" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>3</ion-label>
+      <ion-radio slot="start" value="3"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
 <!-- Default -->
 <ion-button>Submit</ion-button>
 
