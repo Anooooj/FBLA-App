@@ -32,8 +32,16 @@ export class DataService {
     }
   ];
   private attendance = [];
+  private currentGenericAttendance = [];
 
-  constructor() { }
+  constructor() {
+    this.members.forEach(element => {
+      this.currentGenericAttendance.push({
+        name: element.name,
+        status: "not present"
+      });
+    });
+  }
 
   addEvent(event) {
     this.events.push(event);
@@ -77,6 +85,14 @@ export class DataService {
         return this.members[i].name;
       }
     }
+  }
+
+  getCurrentGenericAttendance() {
+    return this.currentGenericAttendance;
+  }
+
+  setCurrentGenericAttendance(array) {
+    this.currentGenericAttendance = array;
   }
 
 }

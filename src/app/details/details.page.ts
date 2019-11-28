@@ -18,6 +18,6 @@ export class DetailsPage implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 }

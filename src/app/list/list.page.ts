@@ -9,14 +9,9 @@ import { DataService } from '../services/data.service';
 export class ListPage implements OnInit {
   private selectedItem: any;
 
-  public items: Array<{ name: string; status: string}> = [];
+  public items: Array<{ name: string; status: string}> = this.dataService.getCurrentGenericAttendance();
   constructor(private dataService: DataService) {
-    dataService.getMembers().forEach(element => {
-      this.items.push({
-        name: element.name,
-        status: "not present"
-      });
-    });
+
   }
 
   ngOnInit() {
@@ -37,6 +32,7 @@ export class ListPage implements OnInit {
     else {
       this.items[i].status = "present";
     }
+    this.dataService.setCurrentGenericAttendance(this.items);
   }
 
 

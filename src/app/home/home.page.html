@@ -20,7 +20,7 @@
         <ion-card-title>FBLA Sign Up</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-button href="signup" color="primary" size="large" fill="solid">Join</ion-button>
+        <ion-button (click)="this.navCtrl.navigateForward('signup')" color="primary" size="large" fill="solid">Join</ion-button>
       </ion-card-content>
       <ion-card-header>
         <ion-card-subtitle>Sign up for FBLA through a form.</ion-card-subtitle>
@@ -32,7 +32,7 @@
       </ion-card-header>
         <!-- <ion-button [routerDirection]="'root'" [routerLink]="'[../home]'" routerLinkActive="active" color="primary" size="large" fill="solid">About</ion-button> -->
       <ion-card-content>
-        <ion-button href="about" color="primary" size="large" fill="solid">About</ion-button>
+        <ion-button (click)="this.navCtrl.navigateForward('about')" color="primary" size="large" fill="solid">About</ion-button>
       </ion-card-content>
       <ion-card-header>
         <ion-card-subtitle>View information about FBLA, links to FBLA websites, links to FBLA social media, and common questions & answers.</ion-card-subtitle>
@@ -43,7 +43,7 @@
         <ion-card-title>Local Officer Team</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-button [routerDirection]="'root'" [routerLink]="'[../settings]'" routerLinkActive="active" color="primary" size="large" fill="solid">Local Chapter</ion-button>
+        <ion-button (click)="this.navCtrl.navigateForward('chapter')" color="primary" size="large" fill="solid">Local Chapter</ion-button>
       </ion-card-content>
       <ion-card-header>
         <ion-card-subtitle>View information about the local FBLA chapter and how to contact us.</ion-card-subtitle>
@@ -54,7 +54,7 @@
         <ion-card-title>FBLA Events</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-button [routerDirection]="'root'" [routerLink]="'[../settings]'" routerLinkActive="active" color="primary" size="large" fill="solid">Events</ion-button>
+        <ion-button (click)="this.navCtrl.navigateForward('calendar')" color="primary" size="large" fill="solid">Events</ion-button>
       </ion-card-content>
       <ion-card-header>
         <ion-card-subtitle>View competitive events, current events, and sign up for events. Special events include fundraisers and community service.</ion-card-subtitle>
