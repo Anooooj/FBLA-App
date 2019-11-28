@@ -9,7 +9,7 @@ import { DataService } from '../services/data.service';
 export class ListPage implements OnInit {
   private selectedItem: any;
 
-  public items: Array<{ title: string; note: string }> = [];
+  public items: Array<{ name: string; note: string }> = [];
   constructor(private dataService: DataService) {
     this.items = dataService.getMembers();
   }
@@ -22,6 +22,6 @@ export class ListPage implements OnInit {
   // }
 
   clicked() {
-    
+
   }
 }
