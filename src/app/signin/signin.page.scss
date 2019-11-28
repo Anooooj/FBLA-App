@@ -1,0 +1,32 @@
+ion-label {
+  width:100%
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
+ion-button {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 1%;
+  padding-right: 1%;
+  box-sizing: border-box;
+  width: 50%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  width: 100%;
+  box-sizing: border-box;
+}
