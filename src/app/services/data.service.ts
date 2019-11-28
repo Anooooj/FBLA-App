@@ -7,6 +7,7 @@ export class DataService {
 
   private data = [];
   private events = [];
+  private members = [];
 
   constructor() { }
 
@@ -24,6 +25,10 @@ export class DataService {
 
   getEvents() {
     return this.events;
+  }
+
+  getMembers() {
+    return this.members;
   }
 
 }
