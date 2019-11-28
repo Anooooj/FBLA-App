@@ -18,9 +18,6 @@ export class DetailsPage implements OnInit {
   }
 
   ngOnInit() {
-    if (this.route.snapshot.data['special']) {
-      this.data = this.route.snapshot.data['special'];
-    }
-    this.text = this.dataService.getEvents[0];
+    
   }
 }
