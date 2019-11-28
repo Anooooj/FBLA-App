@@ -9,9 +9,15 @@ import { DataService } from '../services/data.service';
 export class ListPage implements OnInit {
   private selectedItem: any;
 
-  public items: Array<{ name: string; note: string }> = [];
+  public items: Array<{ name: string; note: string; status: string}> = [];
   constructor(private dataService: DataService) {
-    this.items = dataService.getMembers();
+    dataService.getMembers().forEach(element => {
+      this.items.push({
+        name: element.name,
+        note: element.note,
+        status: "not present"
+      });
+    });
   }
 
   ngOnInit() {
@@ -21,7 +27,18 @@ export class ListPage implements OnInit {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
   // }
 
-  clicked() {
-
+  openItem(item) {
+    this.selectedItem = item;
   }
+
+  buttonClicked(i) {
+    if (this.items[i].status == "present") {
+      this.items[i].status = "not present";
+    }
+    else {
+      this.items[i].status = "present";
+    }
+  }
+
+
 }
