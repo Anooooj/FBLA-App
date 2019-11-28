@@ -13,20 +13,7 @@ export class HomePage {
 
   ngOnInit() {
   }
-
-  user = {
-    name: 'Simon Grimm',
-    website: 'www.ionicacademy.com',
-    address: {
-      zip: 48149,
-      city: 'Muenster',
-      country: 'DE'
-    },
-    interests: [
-      'Ionic', 'Angular', 'YouTube', 'Sports'
-    ]
-  };
-
+  
   openDetailsWithService() {
     this.dataService.setData(0, this.user);
     this.router.navigateByUrl('/details/0');
