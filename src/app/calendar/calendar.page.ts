@@ -134,6 +134,13 @@ export class CalendarPage implements OnInit {
              //this.navCtrl.navigateForward('eventsignup');
            }
          },
+         {
+           text: 'Attendance',
+           handler: () => {
+             this.dataService.setCurrentEventID(index);
+             this.navCtrl.navigateForward('eventattendance');
+           }
+         },
          'Close'
        ]
      });
@@ -150,6 +157,13 @@ export class CalendarPage implements OnInit {
            handler: () => {
              //this.navCtrl.navigateForward('eventsignup');
              this.dataService.removeAttendee(index, this.dataService.getCurrentUser().id);
+           }
+         },
+         {
+           text: 'Attendance',
+           handler: () => {
+             this.dataService.setCurrentEventID(index);
+             this.navCtrl.navigateForward('eventattendance');
            }
          },
          'Close'

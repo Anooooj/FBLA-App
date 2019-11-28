@@ -11,7 +11,7 @@ export class DetailsPage implements OnInit {
 
   data: any;
 
-  public text: 'u';
+  public text: '';
 
   constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService) {
 

@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
+  private school = [];
+
   private currentUser =
   {
     school: "Great Valley High School",
@@ -13,6 +15,7 @@ export class DataService {
     id: 0
   };
 
+  private currentEventID = -1;
   private events = [];
   private members = [
     {
@@ -93,6 +96,14 @@ export class DataService {
 
   setCurrentGenericAttendance(array) {
     this.currentGenericAttendance = array;
+  }
+
+  getCurrentEventID() {
+    return this.currentEventID;
+  }
+
+  setCurrentEventID(id) {
+    this.currentEventID = id;
   }
 
 }

@@ -45,11 +45,12 @@ const routes: Routes = [
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
   },
   {
-    path: 'signup',
-    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
-  },  {
     path: 'signin',
     loadChildren: () => import('./signin/signin.module').then( m => m.SigninPageModule)
+  },
+  {
+    path: 'eventattendance',
+    loadChildren: () => import('./eventattendance/eventattendance.module').then( m => m.EventattendancePageModule)
   }
 
 ];
