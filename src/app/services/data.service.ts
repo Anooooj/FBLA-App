@@ -5,6 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
+  // BECAUSE OF REASONS: EVENT ID IS EVENT INDEX, EVENT IDS CANNOT BE THE SAME, EVENT NAMES CANNOT BE THE SAME, USER NAMES CANNOT BE THE SAME, USER IDS CANNOT BE THE SAME, USER ID IS USER INDEX
+  // FOR THESE REASONS, USER NAMES SHOULD INCLUDE LAST NAME SINCE IT PREVENTS SAME NAME ERROR
+
   private school = [];
 
   private currentUser =
@@ -19,19 +22,19 @@ export class DataService {
   private events = [];
   private members = [
     {
-      name: "Anuj Patel",
-      type: "app creator",
+      name: "Bill Skates",
+      type: "administrator",
       id: 0
     },
     {
-      name: "Anuj Patel",
+      name: "Anuj Mitul Patel",
       type: "app creator",
-      id: 0
+      id: 1
     },
     {
-      name: "Anuj Patel",
+      name: "Sravan ?",
       type: "app creator",
-      id: 0
+      id: 2
     }
   ];
   private attendance = [];

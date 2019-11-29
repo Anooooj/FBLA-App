@@ -31,6 +31,8 @@ export class CalendarPage implements OnInit {
     currentDate: new Date(),
   };
 
+  error = '';
+
   @ViewChild(CalendarComponent, {static: false}) myCal: CalendarComponent;
 
   constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string, public navCtrl: NavController, private dataService: DataService) { }
@@ -69,10 +71,23 @@ export class CalendarPage implements OnInit {
       eventCopy.endTime = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), end.getUTCDate() + 1));
     }
 
-    this.dataService.addEvent(eventCopy);
-    this.eventSource = this.dataService.getEvents();
-    this.myCal.loadEvents();
-    this.resetEvent();
+    var nameTaken = false;
+    this.dataService.getEvents().forEach(element => {
+      if (element.name == eventCopy.name) {
+        nameTaken = true;
+      }
+    });
+
+    if (nameTaken == false) {
+      this.dataService.addEvent(eventCopy);
+      this.eventSource = this.dataService.getEvents();
+      this.myCal.loadEvents();
+      this.resetEvent();
+      this.error = '';
+    }
+    else {
+      this.error = 'The event name has already been taken.'
+    }
   }
   // Change current month/week/day
   next() {
@@ -122,54 +137,94 @@ export class CalendarPage implements OnInit {
    });
 
    if (signedup == false) {
-     const alert = await this.alertCtrl.create({
-       header: event.title,
-       subHeader: event.desc,
-       message: 'From: ' + start + '<br><br>To: ' + end,
-       buttons: [
-         {
-           text: 'Sign Up',
-           handler: () => {
-             this.dataService.addAttendee(index, this.dataService.getCurrentUser().id);
-             //this.navCtrl.navigateForward('eventsignup');
-           }
-         },
-         {
-           text: 'Attendance',
-           handler: () => {
-             this.dataService.setCurrentEventID(index);
-             this.navCtrl.navigateForward('eventattendance');
-           }
-         },
-         'Close'
-       ]
-     });
-     alert.present();
+     if (this.dataService.getCurrentUser().type == "administrator") {
+       const alert = await this.alertCtrl.create({
+         header: event.title,
+         subHeader: event.desc,
+         message: 'From: ' + start + '<br><br>To: ' + end,
+         buttons: [
+           {
+             text: 'Sign Up',
+             handler: () => {
+               this.dataService.addAttendee(index, this.dataService.getCurrentUser().id);
+               //this.navCtrl.navigateForward('eventsignup');
+             }
+           },
+           {
+             text: 'Attendance',
+             handler: () => {
+               this.dataService.setCurrentEventID(index);
+               this.navCtrl.navigateForward('eventattendance');
+             }
+           },
+           'Close'
+         ]
+       });
+       alert.present();
+     }
+     else {
+       const alert = await this.alertCtrl.create({
+         header: event.title,
+         subHeader: event.desc,
+         message: 'From: ' + start + '<br><br>To: ' + end,
+         buttons: [
+           {
+             text: 'Sign Up',
+             handler: () => {
+               this.dataService.addAttendee(index, this.dataService.getCurrentUser().id);
+               //this.navCtrl.navigateForward('eventsignup');
+             }
+           },
+           'Close'
+         ]
+       });
+       alert.present();
+     }
    }
    else {
-     const alert = await this.alertCtrl.create({
-       header: event.title,
-       subHeader: event.desc,
-       message: 'From: ' + start + '<br><br>To: ' + end,
-       buttons: [
-         {
-           text: 'Sign Out',
-           handler: () => {
-             //this.navCtrl.navigateForward('eventsignup');
-             this.dataService.removeAttendee(index, this.dataService.getCurrentUser().id);
-           }
-         },
-         {
-           text: 'Attendance',
-           handler: () => {
-             this.dataService.setCurrentEventID(index);
-             this.navCtrl.navigateForward('eventattendance');
-           }
-         },
-         'Close'
-       ]
-     });
-     alert.present();
+     if (this.dataService.getCurrentUser().type == "administrator") {
+       const alert = await this.alertCtrl.create({
+         header: event.title,
+         subHeader: event.desc,
+         message: 'From: ' + start + '<br><br>To: ' + end,
+         buttons: [
+           {
+             text: 'Sign Out',
+             handler: () => {
+               //this.navCtrl.navigateForward('eventsignup');
+               this.dataService.removeAttendee(index, this.dataService.getCurrentUser().id);
+             }
+           },
+           {
+             text: 'Attendance',
+             handler: () => {
+               this.dataService.setCurrentEventID(index);
+               this.navCtrl.navigateForward('eventattendance');
+             }
+           },
+           'Close'
+         ]
+       });
+       alert.present();
+     }
+     else {
+       const alert = await this.alertCtrl.create({
+         header: event.title,
+         subHeader: event.desc,
+         message: 'From: ' + start + '<br><br>To: ' + end,
+         buttons: [
+           {
+             text: 'Sign Out',
+             handler: () => {
+               //this.navCtrl.navigateForward('eventsignup');
+               this.dataService.removeAttendee(index, this.dataService.getCurrentUser().id);
+             }
+           },
+           'Close'
+         ]
+       });
+       alert.present();
+     }
    }
   }
 
