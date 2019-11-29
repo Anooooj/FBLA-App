@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-chapter',
@@ -8,7 +9,7 @@ import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms'
 })
 export class ChapterPage implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
