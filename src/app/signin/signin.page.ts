@@ -9,7 +9,8 @@ import { DataService } from '../services/data.service';
 })
 export class SigninPage implements OnInit {
 
-  var school '';
+  //ASSUMING FOR NOW
+  school = 'Great Valley High School';
 
   constructor(public navCtrl: NavController, private dataService: DataService) { }
 
