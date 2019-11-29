@@ -5,13 +5,12 @@ import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.page.html',
-  styleUrls: ['./signin.page.scss'],
+  styleUrls: ['./signin.page.scss']
 })
 export class SigninPage implements OnInit {
-
-  //ASSUMING FOR NOW
-  school = 'Great Valley High School';
-
+  school;
+  name;
+  password;
   constructor(public navCtrl: NavController, private dataService: DataService) { }
 
   ngOnInit() {
@@ -21,10 +20,11 @@ export class SigninPage implements OnInit {
     this.navCtrl.navigateForward('signup')
   }
 
-  checkValuesIfSchoolSet(name, password) {
+  // NOT CHECKING SCHOOLS
+  checkValuesIfSchoolSet() {
     this.dataService.getMembers().forEach(member => {
-      if(member.name == name) {
-        if(member.password == password) {
+      if(member.name == this.name) {
+        if(member.password == this.password) {
           this.dataService.setCurrentUser(this.school, member.name, member.type, member.id);
         }
       }
