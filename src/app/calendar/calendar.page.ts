@@ -73,7 +73,7 @@ export class CalendarPage implements OnInit {
 
     var nameTaken = false;
     this.dataService.getEvents().forEach(element => {
-      if (element.name == eventCopy.name) {
+      if (element.title == eventCopy.title) {
         nameTaken = true;
       }
     });

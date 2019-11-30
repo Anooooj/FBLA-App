@@ -24,17 +24,20 @@ export class DataService {
     {
       name: "Bill Skates",
       type: "administrator",
-      id: 0
+      id: 0,
+      password: ''
     },
     {
       name: "Anuj Mitul Patel",
       type: "app creator",
-      id: 1
+      id: 1,
+      password: ''
     },
     {
       name: "Sravan ?",
       type: "app creator",
-      id: 2
+      id: 2,
+      password: ''
     }
   ];
   private attendance = [];
@@ -107,6 +110,15 @@ export class DataService {
 
   setCurrentEventID(id) {
     this.currentEventID = id;
+  }
+
+  setCurrentUser(tschool, tname, ttype, tid) {
+    this.currentUser = {
+      school: tschool,
+      name: tname,
+      type: ttype,
+      id: tid
+    };
   }
 
 }
