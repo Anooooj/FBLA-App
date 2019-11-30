@@ -5,6 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
+  // BECAUSE OF REASONS: EVENT ID IS EVENT INDEX, EVENT IDS CANNOT BE THE SAME, EVENT NAMES CANNOT BE THE SAME, USER NAMES CANNOT BE THE SAME, USER IDS CANNOT BE THE SAME, USER ID IS USER INDEX
+  // FOR THESE REASONS, USER NAMES SHOULD INCLUDE LAST NAME SINCE IT PREVENTS SAME NAME ERROR
+
+  private school = [];
+
   private currentUser =
   {
     school: "Great Valley High School",
@@ -13,27 +18,39 @@ export class DataService {
     id: 0
   };
 
+  private currentEventID = -1;
   private events = [];
   private members = [
     {
-      name: "Anuj Patel",
-      type: "app creator",
-      id: 0
+      name: "Bill Skates",
+      type: "administrator",
+      id: 0,
+      password: ''
     },
     {
-      name: "Anuj Patel",
+      name: "Anuj Mitul Patel",
       type: "app creator",
-      id: 0
+      id: 1,
+      password: ''
     },
     {
-      name: "Anuj Patel",
+      name: "Sravan ?",
       type: "app creator",
-      id: 0
+      id: 2,
+      password: ''
     }
   ];
   private attendance = [];
+  private currentGenericAttendance = [];
 
-  constructor() { }
+  constructor() {
+    this.members.forEach(element => {
+      this.currentGenericAttendance.push({
+        name: element.name,
+        status: "not present"
+      });
+    });
+  }
 
   addEvent(event) {
     this.events.push(event);
@@ -77,6 +94,31 @@ export class DataService {
         return this.members[i].name;
       }
     }
+  }
+
+  getCurrentGenericAttendance() {
+    return this.currentGenericAttendance;
+  }
+
+  setCurrentGenericAttendance(array) {
+    this.currentGenericAttendance = array;
+  }
+
+  getCurrentEventID() {
+    return this.currentEventID;
+  }
+
+  setCurrentEventID(id) {
+    this.currentEventID = id;
+  }
+
+  setCurrentUser(tschool, tname, ttype, tid) {
+    this.currentUser = {
+      school: tschool,
+      name: tname,
+      type: ttype,
+      id: tid
+    };
   }
 
 }

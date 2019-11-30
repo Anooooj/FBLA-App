@@ -1,13 +1,27 @@
+ion-content {
+  --ion-background-color:       #c9d1d3;
+  --ion-background-color-rgb:   201,209,211;
+  font-family: verdana
+}
+
+.top-padding {
+  margin-top: 10%;
+}
+
+.more-top-padding {
+  margin-top: 30%;
+}
+
 ion-label {
   width:100%
 }
 
-.floatLeft {
-  float: left;
-}
-
-.floatRight {
-  float: right;
+ion-item {
+  margin-top: 3%;
+  margin-bottom:7%;
+  margin-right: 5%;
+  margin-left: 5%;
+  font-size: 20px;
 }
 
 ion-button {
@@ -15,8 +29,11 @@ ion-button {
   margin-right: 0px;
   padding-left: 1%;
   padding-right: 1%;
+  margin-top: 2%;
   box-sizing: border-box;
-  width: 50%;
+  height: 55px;
+  width: 75%;
+  font-size: 20px;
 }
 
 ul {
@@ -26,7 +43,6 @@ ul {
 }
 
 li {
-  display: inline;
   width: 100%;
   box-sizing: border-box;
 }

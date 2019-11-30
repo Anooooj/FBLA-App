@@ -1,22 +1,33 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Sign In</ion-title>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Sign In
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form>
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-    <ul>
-      <li><ion-button class="button floatLeft">Submit</ion-button></li>
-      <li><ion-button class="button floatRight">Sign-Up</ion-button></li>
-    </ul>
-  </form>
+  <div class="top-padding">
+    <form>
+      <ion-item>
+        <ion-label position="floating">School</ion-label>
+        <ion-input ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Full Name</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ul class="ion-text-center more-top-padding">
+        <li><ion-button class="button">Submit</ion-button></li>
+        <li><ion-button class="button" (click)="toSignUp()">Sign-Up</ion-button></li>
+      </ul>
+    </form>
+  </div>
 </ion-content>
