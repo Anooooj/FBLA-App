@@ -14,15 +14,15 @@
     <form id="login">
       <ion-item>
         <ion-label position="floating">School</ion-label>
-        <ion-input type="text" id="school" name="school"></ion-input>
+        <ion-input type="text" id="school" name="school" value="" [(ngModel)]="school"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Name</ion-label>
-        <ion-input type="text" id="fullname" name="fullname"></ion-input>
+        <ion-input type="text" id="name" name="name" value="" [(ngModel)]="name"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Password</ion-label>
-        <ion-input type="text" id="password" name="password"></ion-input>
+        <ion-input type="text" id="password" name="password" value="" [(ngModel)]="password"></ion-input>
       </ion-item>
       <ul class="ion-text-center more-top-padding">
         <li><ion-button class="button" (click)="checkValuesIfSchoolSet()">Sign-In</ion-button></li>

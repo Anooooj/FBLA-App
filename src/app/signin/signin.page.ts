@@ -8,9 +8,9 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./signin.page.scss']
 })
 export class SigninPage implements OnInit {
-  school;
-  name;
-  password;
+  school: string = "";
+  name: string = "";
+  password: string = "";
   constructor(public navCtrl: NavController, private dataService: DataService) { }
 
   ngOnInit() {
@@ -21,11 +21,10 @@ export class SigninPage implements OnInit {
   }
 
   checkValuesIfSchoolSet() {
-    console.log(document.querySelector('#fullname'));
     this.dataService.getMembers().forEach(member => {
-      if(document.querySelector('#fullname') == member.name) {
-        if(document.querySelector('#password') == member.password) {
-          this.dataService.setCurrentUser(document.querySelector('#school'), member.name, member.type, member.id);
+      if(this.name == member.name) {
+        if(this.password == member.password) {
+          this.dataService.setCurrentUser(this.school, member.name, member.type, member.id);
         }
       }
     });
