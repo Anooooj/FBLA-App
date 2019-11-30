@@ -59,7 +59,7 @@ export class JoinPage {
   public errorMessages = {
       name: [
         { type: 'required', message: 'Name is required' },
-        { type: 'maxlength', message: 'Name cant be longer than 100 characters because akul is retar' }
+        { type: 'maxlength', message: 'Name cant be longer than 100 characterS' }
       ],
       email: [
         { type: 'required', message: 'Email is required' },
