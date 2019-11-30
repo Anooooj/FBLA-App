@@ -95,15 +95,15 @@ export class DataService {
         this.storage.set('currentGenericAttendance', this.currentGenericAttendance);
       }
     });
-    this.storage.set('currentUser', this.currentUser);
-    //this.storage.get('currentUser').then((val) => {
-    //  if(val) {
-    //    this.currentUser = val;
-    //  }
-    //  else {
-    //    this.storage.set('currentUser', this.currentUser);
-    //  }
-    //});
+    //this.storage.set('currentUser', this.currentUser);
+    this.storage.get('currentUser').then((val) => {
+      if(val) {
+        this.currentUser = val;
+      }
+      else {
+        this.storage.set('currentUser', this.currentUser);
+      }
+    });
     this.storage.get('events').then((val) => {
       if(val) {
         this.events = val;
@@ -147,7 +147,7 @@ export class DataService {
   getMembers() {
     return this.members;
   }
-  addMembers(member) {
+  addMember(member) {
     this.members.push(member);
     this.storage.set('members', this.members);
   }
