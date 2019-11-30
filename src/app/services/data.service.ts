@@ -147,6 +147,10 @@ export class DataService {
   getMembers() {
     return this.members;
   }
+  addMembers(member) {
+    this.members.push(member);
+    this.storage.set('members', this.members);
+  }
 
   getAttendance() {
     return this.attendance;
