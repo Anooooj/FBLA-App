@@ -15,7 +15,7 @@ export class WelcomePage implements OnInit {
   constructor(public menuCtrl: MenuController, private dataService: DataService, public navCtrl: NavController,) { }
 
   ionViewWillEnter() {
-    if (this.dataService.getCurrentUser().id == '-1') {
+    if (this.dataService.getCurrentUser().id == -1) {
       this.menuCtrl.enable(false);
     }
     else {

@@ -15,7 +15,7 @@ export class DataService {
     school: "Great Valley High School",
     name: "",
     type: "member",
-    id: -1
+    id: 0
   };
 
   private currentEventID = -1;
@@ -95,15 +95,15 @@ export class DataService {
         this.storage.set('currentGenericAttendance', this.currentGenericAttendance);
       }
     });
-    //this.storage.set('currentUser', this.currentUser);
-    this.storage.get('currentUser').then((val) => {
-      if(val) {
-        this.currentUser = val;
-      }
-      else {
-        this.storage.set('currentUser', this.currentUser);
-      }
-    });
+    this.storage.set('currentUser', this.currentUser);
+    //this.storage.get('currentUser').then((val) => {
+    //  if(val) {
+    //    this.currentUser = val;
+    //  }
+    //  else {
+    //    this.storage.set('currentUser', this.currentUser);
+    //  }
+    //});
     this.storage.get('events').then((val) => {
       if(val) {
         this.events = val;
