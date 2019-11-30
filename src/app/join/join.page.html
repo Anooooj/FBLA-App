@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      This is going to be a form that reacts to what you put in
+    Sign up
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -39,7 +39,23 @@
             <small class="error-message">{{error.message}}</small>
           </ng-container>
         </div>
-      </ion-list>
+        <ion-list>
+  <ion-radio-group>
+    <ion-list-header>
+      <ion-label>Biological Gender</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>male</ion-label>
+      <ion-radio slot="start" value="male" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Female</ion-label>
+      <ion-radio slot="start" value="female"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
 
 <!-- ISSUE
       <ion-list formGroupName="address">
@@ -92,10 +108,69 @@
             <small class="error-message">{{error.message}}</small>
           </ng-container>
         </div>
-        
+
 
       </ion-list>
 -->
+<ion-list>
+  <ion-radio-group>
+    <ion-list-header>
+      <ion-label>Biological Gender</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Male</ion-label>
+      <ion-radio slot="start" value="Male" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Female</ion-label>
+      <ion-radio slot="start" value="Female"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
+<ion-list>
+  <ion-radio-group>
+    <ion-list-header>
+      <ion-label>Race</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Caucasian</ion-label>
+      <ion-radio slot="start" value="Male" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>African American</ion-label>
+      <ion-radio slot="start" value="Female"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Native American or Alaskan Native</ion-label>
+      <ion-radio slot="start" value="Other"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Asian</ion-label>
+      <ion-radio slot="start" value="Other"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Native Hawaiian or Pacific Islander</ion-label>
+      <ion-radio slot="start" value="Other"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Mixed</ion-label>
+      <ion-radio slot="start" value="Other"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Other</ion-label>
+      <ion-radio slot="start" value="Other"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
 
       <ion-button [disabled]="!registrationForm.valid" type="submit" expand="block">Submit <ion-icon slot="end"
           name="create">
