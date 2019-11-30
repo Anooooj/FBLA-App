@@ -5,7 +5,7 @@ import { DataResolverService } from './resolver/data-resolver.service';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'welcome',
     pathMatch: 'full'
   },
   {
@@ -51,7 +51,11 @@ const routes: Routes = [
   {
     path: 'eventattendance',
     loadChildren: () => import('./eventattendance/eventattendance.module').then( m => m.EventattendancePageModule)
-  }
+  },
+  {
+    path: 'join',
+    loadChildren: () => import('./join/join.module').then( m => m.JoinPageModule)
+  },
 
 ];
 

@@ -9,17 +9,17 @@ export class SignupPage implements OnInit {
 
 
 
-  myForm: FormGroup;
+  //myForm: FormGroup;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.myForm = this.fb.group({
-      email: '',
-      message: ''
-    })
+    //this.myForm = this.fb.group({
+    //  email: '',
+    //  message: ''
+    //})
   }
-  registrationForm = this.formBuilder.group
+  //registrationForm = this.formBuilder.group
 
 
 
