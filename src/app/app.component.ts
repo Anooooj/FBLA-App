@@ -45,12 +45,12 @@ export class AppComponent {
       {
         title: 'About',
         url: '/about',
-        icon: 'about'
+        icon: 'help'
       },
       {
         title: 'Chapter Information',
         url: '/chapter',
-        icon: ''
+        icon: 'school'
       },
       {
         title: 'Calendar',
@@ -87,12 +87,12 @@ export class AppComponent {
       {
         title: 'About',
         url: '/about',
-        icon: 'about'
+        icon: 'help'
       },
       {
         title: 'Chapter Information',
         url: '/chapter',
-        icon: ''
+        icon: 'school'
       },
       {
         title: 'Calendar',
