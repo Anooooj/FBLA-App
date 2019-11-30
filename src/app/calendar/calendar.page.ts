@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
 import { NavController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,8 @@ export class CalendarPage implements OnInit {
 
   minDate = new Date().toISOString();
 
-  eventSource = [];
+  eventSource = this.dataService.getEvents();
+
   viewTitle;
 
   calendar = {
@@ -35,12 +37,36 @@ export class CalendarPage implements OnInit {
 
   @ViewChild(CalendarComponent, {static: false}) myCal: CalendarComponent;
 
-  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string, public navCtrl: NavController, private dataService: DataService) { }
+  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string, public navCtrl: NavController, private dataService: DataService, public storage: Storage) {
+
+  }
 
   ngOnInit() {
-    this.eventSource = this.dataService.getEvents();
-    //this.myCal.loadEvents();
+    this.storage.get('events').then((val) => {
+      if (val) {
+        this.eventSource = val;
+      }
+      else {
+        this.eventSource = this.dataService.getEvents();
+      }
+    });
     this.resetEvent();
+  }
+
+  refresh() {
+    this.myCal.loadEvents();
+  }
+
+  ionViewDidLoad() {
+    this.myCal.loadEvents();
+  }
+
+  ionViewDidEnter(){
+    this.myCal.loadEvents();
+  }
+
+  ionViewWillEnter() {
+    this.myCal.loadEvents();
   }
 
   resetEvent() {

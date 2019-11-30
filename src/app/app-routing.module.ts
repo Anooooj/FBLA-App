@@ -5,7 +5,7 @@ import { DataResolverService } from './resolver/data-resolver.service';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'welcome',
     pathMatch: 'full'
   },
   {
