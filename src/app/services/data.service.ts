@@ -15,7 +15,7 @@ export class DataService {
     school: "Great Valley High School",
     name: "",
     type: "member",
-    id: 0
+    id: -1
   };
 
   private currentEventID = -1;
