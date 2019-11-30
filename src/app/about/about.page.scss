@@ -28,6 +28,13 @@ ion-content {
 .social-media {
   margin-left: -30px;
   margin-right: -30px;
+  li {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline;
+    font-size: 50px;
+    text-decoration: none;
+  }
 }
 
 ul {

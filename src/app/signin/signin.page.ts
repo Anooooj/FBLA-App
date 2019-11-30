@@ -20,15 +20,26 @@ export class SigninPage implements OnInit {
     this.navCtrl.navigateForward('signup')
   }
 
-  // NOT CHECKING SCHOOLS
   checkValuesIfSchoolSet() {
+    console.log(document.querySelector('#fullname'));
     this.dataService.getMembers().forEach(member => {
-      if(member.name == this.name) {
-        if(member.password == this.password) {
-          this.dataService.setCurrentUser(this.school, member.name, member.type, member.id);
+      if(document.querySelector('#fullname') == member.name) {
+        if(document.querySelector('#password') == member.password) {
+          this.dataService.setCurrentUser(document.querySelector('#school'), member.name, member.type, member.id);
         }
       }
     });
   }
+
+  // NOT CHECKING SCHOOLS
+  // checkValuesIfSchoolSet() {
+  //   this.dataService.getMembers().forEach(member => {
+  //     if(member.name == this.name) {
+  //       if(member.password == this.password) {
+  //         this.dataService.setCurrentUser(this.school, member.name, member.type, member.id);
+  //       }
+  //     }
+  //   });
+  // }
 
 }

@@ -11,23 +11,25 @@
 
 <ion-content>
   <div class="top-padding">
-    <form>
+    <form id="login">
       <ion-item>
         <ion-label position="floating">School</ion-label>
-        <ion-input ></ion-input>
+        <ion-input type="text" id="school" name="school"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Full Name</ion-label>
-        <ion-input></ion-input>
+        <ion-input type="text" id="fullname" name="fullname"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Password</ion-label>
-        <ion-input></ion-input>
+        <ion-input type="text" id="password" name="password"></ion-input>
       </ion-item>
       <ul class="ion-text-center more-top-padding">
-        <li><ion-button class="button">Submit</ion-button></li>
+        <li><ion-button class="button" (click)="checkValuesIfSchoolSet()">Sign-In</ion-button></li>
         <li><ion-button class="button" (click)="toSignUp()">Sign-Up</ion-button></li>
       </ul>
     </form>
   </div>
+
+{{ this.dataService.getCurrentUser().name }}
 </ion-content>
