@@ -26,6 +26,8 @@ ul {
 img {
   max-width: none;
   max-height: none;
+  border: solid 5px rgb(216,224,226);
+  border-radius: 5%;
 }
 
 li {
@@ -44,8 +46,8 @@ li {
     padding-left: 0;
     padding-right: 0;
     li {
-      padding-left: 40px;
-      padding-right: 40px;
+      padding-left: 10px;
+      padding-right: 10px;
       display: inline;
       font-size: 50px;
       text-decoration: none;
@@ -56,7 +58,18 @@ li {
   }
 }
 
+li {
+  padding-bottom: 3%;
+}
 
+h1 {
+  font-size: 125%;
+  padding-bottom: 5%;
+}
+
+h2 {
+ padding-bottom: 2%;
+}
 
 
 
