@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { DataService } from '../services/data.service';
 import { MenuController } from '@ionic/angular';
+import { DataService } from '../services/data.service';
 import { NavController } from '@ionic/angular';
-
 @Component({
   selector: 'app-join',
   templateUrl: 'join.page.html',
   styleUrls: ['join.page.scss'],
 })
 export class JoinPage {
-
   error = '';
-
+  password = '';
   constructor(private formBuilder: FormBuilder, public menuCtrl: MenuController, private dataService: DataService, public navCtrl: NavController) {
   }
 
@@ -32,17 +30,18 @@ export class JoinPage {
         Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-s./0-9]*$')
       ]
     ],
-    // password: [
-    //   '',
-    //   [
+    password: [
+      '',
+      [
     //     Validators.required,
     //     Validators.minLength(5),
     //     Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$'),
-    //   ]
+      ]
     ],
     school: [
       '',
       [
+        Validators.required,
       ]
     ],
     gender: [
@@ -89,16 +88,10 @@ export class JoinPage {
   // get zip() {
   //   return this.registrationForm.get('zip');
   // }
-  var link = document.getElementById('getNumber'); // Gets the link
-link.onclick = getNumber; // Runs the function on click
+//   var link = document.getElementById('getNumber'); // Gets the link
+// link.onclick = getNumber; // Runs the function on click
+//
 
-function getNumber() {
-    var minNumber = 0; // The minimum number you want
-    var maxNumber = 100; // The maximum number you want
-    var randomnumber = Math.floor(Math.random() * (maxNumber + 1) + minNumber); // Generates random number
-    $('#myNumber').html(randomnumber); // Sets content of <div> to number
-    return false; // Returns false just to tidy everything up
-}
   public errorMessages = {
       name: [
         { type: 'required', message: 'Name is required' },
@@ -154,19 +147,23 @@ function getNumber() {
     {
       var taken = false;
       this.dataService.getMembers().forEach(member => {
-        if (member.name == this.registrationForm.value.name) {
+        if (member.name == this.registrationForm.value.name && member.school == this.registrationForm.value.school) {
           taken = true;
           this.error = 'Account has already been created.';
         }
       });
       if (taken == false) {
-        this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: this.registrationForm.value.name, id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
-        this.error = '';
-        this.navCtrl.navigateForward('signin');
-      }
+          this.ionViewWillEnter();
+          this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: this.registrationForm.value.name, id: this.dataService.getMembers().length, password: this.password});
+          this.error = '';
+
+          // this.navCtrl.navigateForward('signin');
+        }
     }
 
     ionViewWillEnter() {
       this.menuCtrl.enable(false);
+      this.password = Math.floor(Math.random() * (1000000) + 100000);
     }
+
 }

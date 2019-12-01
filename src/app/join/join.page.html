@@ -40,18 +40,22 @@
           </ng-container>
         </div>
 
-        <ion-item>
+        <!-- <ion-item>
           <ion-label position="floating">Password</ion-label>
           <ion-input inputmode="text" formControlName="password"></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.password">
           <ng-container *ngIf="password.hasError(error.type)">
             <!-- <small class="error-message">{{error.message}}</small> -->
-          </ng-container>
-        </div>
+          <!-- </ng-container>
+        </div> -->
         <ion-item>
           <ion-label position="floating">School</ion-label>
-          <ion-input inputmode="text" formControlName="school" value="Great Valley High School" readonly></ion-input>
+          <ion-input inputmode="text" formControlName="school"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input inputmode="text" readOnly formControlName="password" value={{password}}></ion-input>
         </ion-item>
       </ion-list>
 <ion-list>
@@ -115,6 +119,7 @@
 </ion-list>
       <div class="ion-text-center">
         {{error}}
+        {{password}}
       </div>
       <ion-button [disabled]="!registrationForm.valid" type="submit" expand="block">Sign Up <ion-icon slot="end"
           name="create">
