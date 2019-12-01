@@ -150,7 +150,7 @@ export class JoinPage {
         }
       });
       if (taken == false) {
-        this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: this.registrationForm.value.name, id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
+        this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: "Great Valley High School", id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
         this.error = '';
         this.navCtrl.navigateForward('signin');
       }
