@@ -24,7 +24,9 @@
         <ion-label position="floating">Password</ion-label>
         <ion-input type="text" id="password" name="password" value="" [(ngModel)]="password"></ion-input>
       </ion-item>
-      {{error}}
+      <div class="ion-text-center">
+        {{error}}
+      </div>
       <ul class="ion-text-center more-top-padding">
         <li><ion-button class="button" (click)="checkValuesIfSchoolSet()">Sign-In</ion-button></li>
         <li><ion-button class="button" (click)="toSignUp()">Sign-Up</ion-button></li>
