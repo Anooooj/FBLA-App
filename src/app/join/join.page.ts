@@ -10,7 +10,7 @@ import { NavController } from '@ionic/angular';
 })
 export class JoinPage {
   error = '';
-  password = '';
+  password = 0;
   constructor(private formBuilder: FormBuilder, public menuCtrl: MenuController, private dataService: DataService, public navCtrl: NavController) {
   }
 
