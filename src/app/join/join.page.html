@@ -51,7 +51,7 @@
         </div> -->
         <ion-item>
           <ion-label position="floating">School</ion-label>
-          <ion-input inputmode="text" formControlName="school"></ion-input>
+          <ion-input inputmode="text" readOnly formControlName="school" value="Great Valley High School"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Password</ion-label>
@@ -119,7 +119,6 @@
 </ion-list>
       <div class="ion-text-center">
         {{error}}
-        {{password}}
       </div>
       <ion-button [disabled]="!registrationForm.valid" type="submit" expand="block">Sign Up <ion-icon slot="end"
           name="create">

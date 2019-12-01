@@ -41,7 +41,7 @@ export class JoinPage {
     school: [
       '',
       [
-        Validators.required,
+        // Validators.required,
       ]
     ],
     gender: [
@@ -157,7 +157,7 @@ export class JoinPage {
           this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: this.registrationForm.value.name, id: this.dataService.getMembers().length, password: this.password});
           this.error = '';
 
-          // this.navCtrl.navigateForward('signin');
+          this.navCtrl.navigateForward('home');
         }
     }
 
