@@ -138,7 +138,7 @@ export class JoinPage {
 
     public signup()
     {
-      this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
+      this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: this.registrationForm.value.name, id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
     }
 
     ionViewWillEnter() {
