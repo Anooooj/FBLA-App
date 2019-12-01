@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-join',
   templateUrl: 'join.page.html',
   styleUrls: ['join.page.scss'],
 })
 export class JoinPage {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, public menuCtrl: MenuController) {}
 
   registrationForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.maxLength(100)]],
@@ -102,5 +103,9 @@ export class JoinPage {
     public submit()
     {
       console.log(this.registrationForm.value);
+    }
+
+    ionViewWillEnter() {
+      this.menuCtrl.enable(false);
     }
 }

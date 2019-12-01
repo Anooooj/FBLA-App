@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-signin',
@@ -8,16 +9,20 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./signin.page.scss']
 })
 export class SigninPage implements OnInit {
-  school: string = "Great Valley High School";
+  school: string = "";
   name: string = "";
   password: string = "";
-  constructor(public navCtrl: NavController, private dataService: DataService) { }
+  constructor(public navCtrl: NavController, private dataService: DataService, public menuCtrl: MenuController) { }
 
   ngOnInit() {
   }
 
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+  }
+
   toSignUp() {
-    this.navCtrl.navigateForward('signup')
+    this.navCtrl.navigateForward('join');
   }
 
   checkValuesIfSchoolSet() {
@@ -25,6 +30,7 @@ export class SigninPage implements OnInit {
       if(this.name == member.name) {
         if(this.password == member.password) {
           this.dataService.setCurrentUser(this.school, member.name, member.type, member.id);
+          this.navCtrl.navigateForward('home');
         }
       }
     });
