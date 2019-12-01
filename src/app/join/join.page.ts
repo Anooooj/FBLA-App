@@ -35,6 +35,12 @@ export class JoinPage {
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$'),
       ]
     ],
+    school: [
+      '',
+      [
+        Validators.required,
+      ]
+    ],
     gender: [
       '',
       [
@@ -97,6 +103,9 @@ export class JoinPage {
         { type: 'minlength', message : 'Password cannot be shorter than 5 characters' },
         { type: 'pattern', message: 'Password must contain letters (uppercase and lowercase), numbers, and special characters' },
       ],
+      school: [
+        { type: 'required', message: 'School is required' },
+      ],
       street: [
         { type: 'required', message: 'Street name is required' },
         {
@@ -129,7 +138,6 @@ export class JoinPage {
 
     public signup()
     {
-      console.log(this.registrationForm.value.name, this.dataService.getMembers().length, this.registrationForm.value.password);
       this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
     }
 
