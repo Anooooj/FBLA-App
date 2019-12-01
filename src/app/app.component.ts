@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { DataService } from './services/data.service';
 
+import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -19,97 +21,34 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private dataService: DataService
+    private dataService: DataService,
+    private storage: Storage
   ) {
-    if (this.dataService.getCurrentUser().type == 'administrator') {
-      this.appPages = [{
-        title: 'Home',
-        url: '/home',
-        icon: 'home'
-      },
-      {
-        title: 'Sign-In',
-        url: '/signin',
-        icon: ''
-      },
-      {
-        title: 'Sign-Up',
-        url: '/signup',
-        icon: ''
-      },
-      {
-        title: 'Attendance',
-        url: '/list',
-        icon: 'list'
-      },
-      {
-        title: 'About',
-        url: '/about',
-        icon: 'help'
-      },
-      {
-        title: 'Chapter Information',
-        url: '/chapter',
-        icon: 'school'
-      },
-      {
-        title: 'Calendar',
-        url: '/calendar',
-        icon: 'calendar'
-      },
-      {
-        title: 'Settings',
-        url: '/settings',
-        icon: 'settings'
-      },
-      {
-        title: 'Welcome (Test)',
-        url: '/welcome',
-        icon: 'welcome'
-      }];
-    }
-    else {
-      this.appPages = [{
-        title: 'Home',
-        url: '/home',
-        icon: 'home'
-      },
-      {
-        title: 'Sign-In',
-        url: '/signin',
-        icon: ''
-      },
-      {
-        title: 'Sign-Up',
-        url: '/signup',
-        icon: ''
-      },
-      {
-        title: 'About',
-        url: '/about',
-        icon: 'help'
-      },
-      {
-        title: 'Chapter Information',
-        url: '/chapter',
-        icon: 'school'
-      },
-      {
-        title: 'Calendar',
-        url: '/calendar',
-        icon: 'calendar'
-      },
-      {
-        title: 'Settings',
-        url: '/settings',
-        icon: 'settings'
-      },
-      {
-        title: 'Welcome (Test)',
-        url: '/welcome',
-        icon: 'welcome'
-      }];
-    }
+    this.appPages = [{
+      title: 'Home',
+      url: '/home',
+      icon: 'home'
+    },
+    {
+      title: 'About',
+      url: '/about',
+      icon: 'help'
+    },
+    {
+      title: 'Chapter Information',
+      url: '/chapter',
+      icon: 'school'
+    },
+    {
+      title: 'Calendar',
+      url: '/calendar',
+      icon: 'calendar'
+    },
+    {
+      title: 'Attendance',
+      url: '/list',
+      icon: 'list'
+    }];
     this.initializeApp();
 
   }
@@ -119,5 +58,14 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  signOut() {
+    this.dataService.setCurrentUser(
+      "",
+      "",
+      "member",
+      -1
+    );
   }
 }

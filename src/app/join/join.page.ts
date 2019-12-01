@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-join',
   templateUrl: 'join.page.html',
   styleUrls: ['join.page.scss'],
 })
 export class JoinPage {
-
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, public menuCtrl: MenuController) {}
 
   registrationForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.maxLength(100)]],
@@ -128,5 +128,9 @@ export class JoinPage {
     public signup()
     {
       this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
+    }
+
+    ionViewWillEnter() {
+      this.menuCtrl.enable(false);
     }
 }

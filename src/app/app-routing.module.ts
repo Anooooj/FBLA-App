@@ -56,6 +56,10 @@ const routes: Routes = [
     path: 'join',
     loadChildren: () => import('./join/join.module').then( m => m.JoinPageModule)
   },
+  {
+    path: 'tos',
+    loadChildren: () => import('./tos/tos.module').then( m => m.TosPageModule)
+  },
 
 ];
 

@@ -26,13 +26,15 @@ export class ListPage implements OnInit {
   }
 
   buttonClicked(i) {
-    if (this.items[i].status == "present") {
-      this.items[i].status = "not present";
+    if(this.dataService.getCurrentUser().type == 'administrator') {
+      if (this.items[i].status == "present") {
+        this.items[i].status = "not present";
+      }
+      else {
+        this.items[i].status = "present";
+      }
+      this.dataService.setCurrentGenericAttendance(this.items);
     }
-    else {
-      this.items[i].status = "present";
-    }
-    this.dataService.setCurrentGenericAttendance(this.items);
   }
 
 

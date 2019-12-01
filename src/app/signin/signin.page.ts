@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
+import { MenuController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-signin',
@@ -11,21 +14,35 @@ export class SigninPage implements OnInit {
   school: string = "";
   name: string = "";
   password: string = "";
-  constructor(public navCtrl: NavController, private dataService: DataService) { }
+
+  error = '';
+  constructor(public navCtrl: NavController, private dataService: DataService, public menuCtrl: MenuController, private storage: Storage
+  ) { }
 
   ngOnInit() {
   }
 
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+  }
+
   toSignUp() {
-    this.navCtrl.navigateForward('signup')
+    this.navCtrl.navigateForward('join');
   }
 
   checkValuesIfSchoolSet() {
     this.dataService.getMembers().forEach(member => {
-      if(this.name == member.name) {
-        if(this.password == member.password) {
-          this.dataService.setCurrentUser(this.school, member.name, member.type, member.id);
+      if(this.school == "Great Valley High School") {
+        if(this.name == member.name) {
+          if(this.password == member.password) {
+            this.dataService.setCurrentUser(this.school, member.name, member.type, member.id);
+            this.menuCtrl.enable(true);
+            this.navCtrl.navigateForward('home');
+          }
         }
+      }
+      else {
+        this.error = 'Invalid login';
       }
     });
   }
