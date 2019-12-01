@@ -9,7 +9,11 @@ import { DataService } from '../services/data.service';
   styleUrls: ['join.page.scss'],
 })
 export class JoinPage {
-  constructor(private formBuilder: FormBuilder, public menuCtrl: MenuController, private dataService: DataService) {}
+
+  error = '';
+
+  constructor(private formBuilder: FormBuilder, public menuCtrl: MenuController, private dataService: DataService) {
+  }
 
   registrationForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.maxLength(100)]],
@@ -138,7 +142,17 @@ export class JoinPage {
 
     public signup()
     {
-      this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: this.registrationForm.value.name, id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
+      var taken = false;
+      this.dataService.getMembers().forEach(member => {
+        if (member.name == this.registrationForm.value.name && member.school == this.registrationForm.value.school) {
+          taken = true;
+          this.error = 'Account has already been created.';
+        }
+      });
+      if (!taken) {
+        this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: this.registrationForm.value.name, id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
+        this.error = '';
+      }
     }
 
     ionViewWillEnter() {
