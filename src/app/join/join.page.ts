@@ -31,13 +31,13 @@ export class JoinPage {
         Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-s./0-9]*$')
       ]
     ],
-    password: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(5),
-        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$'),
-      ]
+    // password: [
+    //   '',
+    //   [
+    //     Validators.required,
+    //     Validators.minLength(5),
+    //     Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$'),
+    //   ]
     ],
     school: [
       '',
@@ -89,6 +89,16 @@ export class JoinPage {
   // get zip() {
   //   return this.registrationForm.get('zip');
   // }
+  var link = document.getElementById('getNumber'); // Gets the link
+link.onclick = getNumber; // Runs the function on click
+
+function getNumber() {
+    var minNumber = 0; // The minimum number you want
+    var maxNumber = 100; // The maximum number you want
+    var randomnumber = Math.floor(Math.random() * (maxNumber + 1) + minNumber); // Generates random number
+    $('#myNumber').html(randomnumber); // Sets content of <div> to number
+    return false; // Returns false just to tidy everything up
+}
   public errorMessages = {
       name: [
         { type: 'required', message: 'Name is required' },
@@ -103,9 +113,9 @@ export class JoinPage {
         { type: 'pattern', message: 'Please enter a valid phone number' }
       ],
       password: [
-        { type: 'required', message: 'Password is required' },
-        { type: 'minlength', message : 'Password cannot be shorter than 5 characters' },
-        { type: 'pattern', message: 'Password must contain letters (uppercase and lowercase), numbers, and special characters' },
+        // { type: 'required', message: 'Password is required' },
+        // { type: 'minlength', message : 'Password cannot be shorter than 5 characters' },
+        // { type: 'pattern', message: 'Password must contain letters (uppercase and lowercase), numbers, and special characters' }
       ],
       school: [
         { type: 'required', message: 'School is required' },
