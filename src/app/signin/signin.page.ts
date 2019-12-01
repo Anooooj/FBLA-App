@@ -32,10 +32,10 @@ export class SigninPage implements OnInit {
 
   checkValuesIfSchoolSet() {
     this.dataService.getMembers().forEach(member => {
-      if(this.school == "Great Valley High School") {
+      if(this.school == member.school) {
         if(this.name == member.name) {
           if(this.password == member.password) {
-            this.dataService.setCurrentUser(this.school, member.name, member.type, member.id);
+            this.dataService.setCurrentUser(member.school, member.name, member.type, member.id);
             this.menuCtrl.enable(true);
             this.navCtrl.navigateForward('home');
           }

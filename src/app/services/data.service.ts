@@ -27,54 +27,63 @@ export class DataService {
     {
       name: "David",
       type: "administrator",
+      school: "Great Valley High School",
       id: 0,
       password: ''
     },
     {
       name: "Johnathan",
       type: "administrator",
+      school: "Great Valley High School",
       id: 1,
       password: ''
     },
     {
       name: "Nathanial",
       type: "administrator",
+      school: "Great Valley High School",
       id: 2,
       password: ''
     },
     {
       name: "Sean",
       type: "administrator",
+      school: "Great Valley High School",
       id: 3,
       password: ''
     },
     {
       name: "Conner",
       type: "administrator",
+      school: "Great Valley High School",
       id: 4,
       password: ''
     },
     {
       name: "Vanarcheck",
       type: "administrator",
+      school: "Great Valley High School",
       id: 5,
       password: ''
     },
     {
       name: "Anuj",
       type: "member",
+      school: "Great Valley High School",
       id: 6,
       password: ''
     },
     {
       name: "Akul",
       type: "member",
+      school: "Great Valley High School",
       id: 7,
       password: ''
     },
     {
       name: "Sravan",
       type: "member",
+      school: "Great Valley High School",
       id: 8,
       password: ''
     }
