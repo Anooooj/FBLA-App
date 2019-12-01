@@ -1,20 +1,18 @@
-.title {
-  padding-top: 6em;
-  p {
-    margin: 0;
-    padding: 0;
-    font-family: comic sans-serif;
-    font-size: 45px;
-    font-weight: 800px;
-  }
-  ion-button {
-    margin-top: .5em;
-    font-size: 30px;
-    height: 65px;
-    width: 50%;
-  }
+p {
+  padding: 0;
+  margin-left: 30px;
+  margin-right: 30px;
+  font-size: 25px;
+  font-family: verdana;
+}
+
+ion-button {
+  margin-top: .5em;
+  font-size: 30px;
+  height: 65px;
+  width: 50%;
 }
 
 .content {
-  margin-top: 13em;
+  margin-top: .5em;
 }
