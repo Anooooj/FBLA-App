@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { MenuController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class DataService {
 
   private currentUser =
   {
-    school: "Great Valley High School",
+    school: "",
     name: "",
     type: "member",
     id: -1
@@ -89,6 +90,7 @@ export class DataService {
       });
     });
 
+    //this.storage.set('currentGenericAttendance', this.currentGenericAttendance);
     this.storage.get('currentGenericAttendance').then((val) => {
       if(val) {
         this.currentGenericAttendance = val;
@@ -122,6 +124,7 @@ export class DataService {
         this.storage.set('attendance', this.attendance);
       }
     });
+    //this.storage.set('members', this.members);
     this.storage.get('members').then((val) => {
       if(val) {
         this.members = val;
@@ -130,6 +133,7 @@ export class DataService {
         this.storage.set('members', this.members);
       }
     });
+
     //TEST
     //this.storage.set('currentUser', this.currentUser);
     //this.storage.set('events', this.events);

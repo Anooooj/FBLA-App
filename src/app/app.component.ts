@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { DataService } from './services/data.service';
 
+import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -19,58 +21,61 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private dataService: DataService
+    private dataService: DataService,
+    private storage: Storage
   ) {
-    if (this.dataService.getCurrentUser().type == 'administrator') {
-      this.appPages = [{
-        title: 'Home',
-        url: '/home',
-        icon: 'home'
-      },
-      {
-        title: 'About',
-        url: '/about',
-        icon: 'help'
-      },
-      {
-        title: 'Chapter Information',
-        url: '/chapter',
-        icon: 'school'
-      },
-      {
-        title: 'Calendar',
-        url: '/calendar',
-        icon: 'calendar'
-      },
-      {
-        title: 'Attendance',
-        url: '/list',
-        icon: 'list'
-      }];
-    }
-    else {
-      this.appPages = [{
-        title: 'Home',
-        url: '/home',
-        icon: 'home'
-      },
-      {
-        title: 'About',
-        url: '/about',
-        icon: 'help'
-      },
-      {
-        title: 'Chapter Information',
-        url: '/chapter',
-        icon: 'school'
-      },
-      {
-        title: 'Calendar',
-        url: '/calendar',
-        icon: 'calendar'
-      }];
+    this.storage.get('currentUser').then((user) => {
+      if (user.type !== 'member') {
+        this.appPages = [{
+          title: 'Home',
+          url: '/home',
+          icon: 'home'
+        },
+        {
+          title: 'About',
+          url: '/about',
+          icon: 'help'
+        },
+        {
+          title: 'Chapter Information',
+          url: '/chapter',
+          icon: 'school'
+        },
+        {
+          title: 'Calendar',
+          url: '/calendar',
+          icon: 'calendar'
+        },
+        {
+          title: 'Attendance',
+          url: '/list',
+          icon: 'list'
+        }];
+      }
+      else {
+        this.appPages = [{
+          title: 'Home',
+          url: '/home',
+          icon: 'home'
+        },
+        {
+          title: 'About',
+          url: '/about',
+          icon: 'help'
+        },
+        {
+          title: 'Chapter Information',
+          url: '/chapter',
+          icon: 'school'
+        },
+        {
+          title: 'Calendar',
+          url: '/calendar',
+          icon: 'calendar'
+        }];
 
-    }
+      }
+    });
     this.initializeApp();
 
   }
