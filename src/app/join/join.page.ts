@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MenuController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { MenuController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-join',
@@ -13,7 +14,7 @@ export class JoinPage {
 
   error = '';
 
-  constructor(private formBuilder: FormBuilder, public menuCtrl: MenuController, private dataService: DataService) {
+  constructor(private formBuilder: FormBuilder, public menuCtrl: MenuController, private dataService: DataService, public navCtrl: NavController) {
   }
 
   registrationForm = this.formBuilder.group({
