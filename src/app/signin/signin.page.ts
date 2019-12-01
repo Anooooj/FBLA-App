@@ -36,9 +36,16 @@ export class SigninPage implements OnInit {
         if(this.name == member.name) {
           if(this.password == member.password) {
             this.dataService.setCurrentUser(member.school, member.name, member.type, member.id);
+            this.error = '';
             this.menuCtrl.enable(true);
             this.navCtrl.navigateForward('home');
           }
+          else {
+            this.error = 'Invalid login';
+          }
+        }
+        else {
+          this.error = 'Invalid login';
         }
       }
       else {
