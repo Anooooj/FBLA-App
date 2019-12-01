@@ -1,3 +1,20 @@
+ion-content {
+  --ion-background-color:       #c9d1d3;
+  --ion-background-color-rgb:   201,209,211;
+  font-family: verdana;
+}
+
+form {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+ion-button {
+  margin-top: 20px;
+  font-size: 20px;
+  height: 40px;
+}
+
 mat-form-field {
     display: block;
 }

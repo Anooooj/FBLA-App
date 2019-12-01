@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MenuController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-join',
@@ -42,7 +43,6 @@ export class JoinPage {
     school: [
       '',
       [
-        Validators.required,
       ]
     ],
     gender: [
@@ -144,7 +144,7 @@ export class JoinPage {
     {
       var taken = false;
       this.dataService.getMembers().forEach(member => {
-        if (member.name == this.registrationForm.value.name && member.school == this.registrationForm.value.school) {
+        if (member.name == this.registrationForm.value.name) {
           taken = true;
           this.error = 'Account has already been created.';
         }
@@ -152,6 +152,7 @@ export class JoinPage {
       if (taken == false) {
         this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: this.registrationForm.value.name, id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
         this.error = '';
+        this.navCtrl.navigateForward('signin');
       }
     }
 
