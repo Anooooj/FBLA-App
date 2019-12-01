@@ -143,6 +143,11 @@ export class JoinPage {
       ]
     };
 
+    ionViewWillEnter() {
+      this.menuCtrl.enable(false);
+      this.password = Math.floor(Math.random() * (1000000) + 100000);
+    }
+
     public signup()
     {
       var taken = false;
@@ -153,17 +158,11 @@ export class JoinPage {
         }
       });
       if (taken == false) {
-          this.ionViewWillEnter();
           this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: "Great Valley High School", id: this.dataService.getMembers().length, password: this.password});
           this.error = '';
 
           this.navCtrl.navigateForward('signin');
         }
-    }
-
-    ionViewWillEnter() {
-      this.menuCtrl.enable(false);
-      this.password = Math.floor(Math.random() * (1000000) + 100000);
     }
 
 }

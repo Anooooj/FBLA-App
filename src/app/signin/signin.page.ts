@@ -41,15 +41,15 @@ export class SigninPage implements OnInit {
             this.navCtrl.navigateForward('home');
           }
           else {
-            this.error = 'Invalid login';
+            this.error = 'Invalid pass';
           }
         }
         else {
-          this.error = 'Invalid login';
+          this.error = 'Invalid name';
         }
       }
       else {
-        this.error = 'Invalid login';
+        this.error = 'Invalid school';
       }
     });
   }
