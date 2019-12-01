@@ -36,43 +36,43 @@ export class DataService {
     {
       name: "Nathanial",
       type: "administrator",
-      id: 3,
+      id: 2,
       password: ''
     },
     {
       name: "Sean",
       type: "administrator",
-      id: 4,
+      id: 3,
       password: ''
     },
     {
       name: "Conner",
       type: "administrator",
-      id: 5,
+      id: 4,
       password: ''
     },
     {
       name: "Vanarcheck",
       type: "administrator",
-      id: 6,
+      id: 5,
       password: ''
     },
     {
       name: "Anuj",
       type: "member",
-      id: 7,
+      id: 6,
       password: ''
     },
     {
       name: "Akul",
       type: "member",
-      id: 8,
+      id: 7,
       password: ''
     },
     {
       name: "Sravan",
       type: "member",
-      id: 9,
+      id: 8,
       password: ''
     }
   ];
@@ -131,8 +131,8 @@ export class DataService {
     //TEST
     //this.storage.set('currentUser', this.currentUser);
     //this.storage.set('events', this.events);
-    //this.storage.set('attendance', this.attendance);
-    //this.storage.set('members', this.members);
+    // //this.storage.set('attendance', this.attendance);
+    // this.storage.set('members', this.members);
   }
 
   addEvent(event) {

@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+  <form [formGroup]="registrationForm" (ngSubmit)="signup()">
       <ion-list>
         <ion-item>
           <ion-label position="floating">Name</ion-label>
@@ -39,7 +39,18 @@
             <small class="error-message">{{error.message}}</small>
           </ng-container>
         </div>
-        <ion-list>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input inputmode="text" formControlName="password"></ion-input>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.password">
+          <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> -->
+      </ion-list>
+<!-- <ion-list>
   <ion-radio-group>
     <ion-list-header>
       <ion-label>Biological Gender</ion-label>
@@ -55,7 +66,7 @@
       <ion-radio slot="start" value="female"></ion-radio>
     </ion-item>
   </ion-radio-group>
-</ion-list>
+</ion-list> -->
 
 <!-- ISSUE
       <ion-list formGroupName="address">
@@ -113,66 +124,65 @@
       </ion-list>
 -->
 <ion-list>
-  <ion-radio-group>
+  <ion-radio-group formControlName="gender">
     <ion-list-header>
       <ion-label>Biological Gender</ion-label>
     </ion-list-header>
+      <ion-item>
+        <ion-label>Male</ion-label>
+        <ion-radio slot="start" value="Male" checked></ion-radio>
+      </ion-item>
 
-    <ion-item>
-      <ion-label>Male</ion-label>
-      <ion-radio slot="start" value="Male" checked></ion-radio>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Female</ion-label>
-      <ion-radio slot="start" value="Female"></ion-radio>
-    </ion-item>
+      <ion-item>
+        <ion-label>Female</ion-label>
+        <ion-radio slot="start" value="Female"></ion-radio>
+      </ion-item>
   </ion-radio-group>
 </ion-list>
 <ion-list>
-  <ion-radio-group>
+  <ion-radio-group formControlName="race">
     <ion-list-header>
       <ion-label>Race</ion-label>
     </ion-list-header>
 
     <ion-item>
       <ion-label>Caucasian</ion-label>
-      <ion-radio slot="start" value="Male" checked></ion-radio>
+      <ion-radio slot="start" value="caucasian" checked></ion-radio>
     </ion-item>
 
     <ion-item>
       <ion-label>African American</ion-label>
-      <ion-radio slot="start" value="Female"></ion-radio>
+      <ion-radio slot="start" value="african-american"></ion-radio>
     </ion-item>
 
     <ion-item>
       <ion-label>Native American or Alaskan Native</ion-label>
-      <ion-radio slot="start" value="Other"></ion-radio>
+      <ion-radio slot="start" value="native"></ion-radio>
     </ion-item>
 
     <ion-item>
       <ion-label>Asian</ion-label>
-      <ion-radio slot="start" value="Other"></ion-radio>
+      <ion-radio slot="start" value="asian"></ion-radio>
     </ion-item>
 
     <ion-item>
       <ion-label>Native Hawaiian or Pacific Islander</ion-label>
-      <ion-radio slot="start" value="Other"></ion-radio>
+      <ion-radio slot="start" value="pacific"></ion-radio>
     </ion-item>
 
     <ion-item>
       <ion-label>Mixed</ion-label>
-      <ion-radio slot="start" value="Other"></ion-radio>
+      <ion-radio slot="start" value="mixed"></ion-radio>
     </ion-item>
 
     <ion-item>
       <ion-label>Other</ion-label>
-      <ion-radio slot="start" value="Other"></ion-radio>
+      <ion-radio slot="start" value="other"></ion-radio>
     </ion-item>
   </ion-radio-group>
 </ion-list>
 
-      <ion-button [disabled]="!registrationForm.valid" type="submit" expand="block">Submit <ion-icon slot="end"
+      <ion-button [disabled]="!registrationForm.valid" type="submit" expand="block">Sign Up <ion-icon slot="end"
           name="create">
         </ion-icon>
       </ion-button>

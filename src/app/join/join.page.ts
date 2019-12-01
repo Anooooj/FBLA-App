@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-join',
   templateUrl: 'join.page.html',
   styleUrls: ['join.page.scss'],
 })
 export class JoinPage {
+
   constructor(private formBuilder: FormBuilder) {}
 
   registrationForm = this.formBuilder.group({
@@ -24,15 +25,35 @@ export class JoinPage {
         Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-s./0-9]*$')
       ]
     ],
-    address: this.formBuilder.group({
-      street: ['', [Validators.required, Validators.maxLength(100)]],
-      city: ['', [Validators.required, Validators.maxLength(100)]],
-      state: ['', [Validators.required, Validators.maxLength(100)]],
-      zip: [
-        '',
-        [Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')]
+    password: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$'),
       ]
-    })
+    ],
+    gender: [
+      '',
+      [
+        Validators.required,
+      ]
+    ],
+    race: [
+      '',
+      [
+        Validators.required,
+      ]
+    ],
+    // address: this.formBuilder.group({
+    //   street: ['', [Validators.required, Validators.maxLength(100)]],
+    //   city: ['', [Validators.required, Validators.maxLength(100)]],
+    //   state: ['', [Validators.required, Validators.maxLength(100)]],
+    //   zip: [
+    //     '',
+    //     [Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')]
+    //   ]
+    // })
   });
 
   get name() {
@@ -44,22 +65,22 @@ export class JoinPage {
   get phone() {
     return this.registrationForm.get('phone');
   }
-  get street() {
-    return this.registrationForm.get('street');
-  }
-  get city() {
-    return this.registrationForm.get('city');
-  }
-  get State() {
-    return this.registrationForm.get('state');
-  }
-  get zip() {
-    return this.registrationForm.get('zip');
-  }
+  // get street() {
+  //   return this.registrationForm.get('street');
+  // }
+  // get city() {
+  //   return this.registrationForm.get('city');
+  // }
+  // get State() {
+  //   return this.registrationForm.get('state');
+  // }
+  // get zip() {
+  //   return this.registrationForm.get('zip');
+  // }
   public errorMessages = {
       name: [
         { type: 'required', message: 'Name is required' },
-        { type: 'maxlength', message: 'Name cant be longer than 100 characterS' }
+        { type: 'maxlength', message: 'Name cannot be longer than 100 characters' }
       ],
       email: [
         { type: 'required', message: 'Email is required' },
@@ -68,6 +89,11 @@ export class JoinPage {
       phone: [
         { type: 'required', message: 'Phone number is required' },
         { type: 'pattern', message: 'Please enter a valid phone number' }
+      ],
+      password: [
+        { type: 'required', message: 'Password is required' },
+        { type: 'minlength', message : 'Password cannot be shorter than 5 characters' },
+        { type: 'pattern', message: 'Password must contain letters (uppercase and lowercase), numbers, and special characters' },
       ],
       street: [
         { type: 'required', message: 'Street name is required' },
@@ -99,8 +125,8 @@ export class JoinPage {
       ]
     };
 
-    public submit()
+    public signup()
     {
-      console.log(this.registrationForm.value);
+      this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
     }
 }
