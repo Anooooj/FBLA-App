@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MenuController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { MenuController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
