@@ -149,7 +149,7 @@ export class JoinPage {
           this.error = 'Account has already been created.';
         }
       });
-      if (!taken) {
+      if (taken == false) {
         this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: this.registrationForm.value.name, id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
         this.error = '';
       }
