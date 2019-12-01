@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import {  MenuController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 import { DataService } from '../services/data.service';
 import { NavController } from '@ionic/angular';
+
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'app-welcome',
@@ -12,14 +15,22 @@ import { NavController } from '@ionic/angular';
 })
 export class WelcomePage implements OnInit {
 
-  constructor(public menuCtrl: MenuController, private dataService: DataService, public navCtrl: NavController,) { }
+  constructor(public menuCtrl: MenuController, private dataService: DataService, public navCtrl: NavController, private storage: Storage) { }
 
   ionViewWillEnter() {
-    if (this.dataService.getCurrentUser().id == -1) {
+    if (this.dataService.getTos() == false) {
       this.menuCtrl.enable(false);
+      this.navCtrl.navigateForward('tos');
     }
     else {
-      this.navCtrl.navigateForward('home');
+      this.storage.get('currentUser').then((val) => {
+        if (val.id == -1) {
+          this.menuCtrl.enable(false);
+        }
+        else {
+          this.navCtrl.navigateForward('home');
+        }
+      });
     }
   }
 

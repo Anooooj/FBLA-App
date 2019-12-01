@@ -8,7 +8,7 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./signin.page.scss']
 })
 export class SigninPage implements OnInit {
-  school: string = "";
+  school: string = "Great Valley High School";
   name: string = "";
   password: string = "";
   constructor(public navCtrl: NavController, private dataService: DataService) { }

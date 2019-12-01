@@ -28,21 +28,6 @@ export class AppComponent {
         icon: 'home'
       },
       {
-        title: 'Sign-In',
-        url: '/signin',
-        icon: ''
-      },
-      {
-        title: 'Sign-Up',
-        url: '/signup',
-        icon: ''
-      },
-      {
-        title: 'Attendance',
-        url: '/list',
-        icon: 'list'
-      },
-      {
         title: 'About',
         url: '/about',
         icon: 'help'
@@ -58,14 +43,9 @@ export class AppComponent {
         icon: 'calendar'
       },
       {
-        title: 'Settings',
-        url: '/settings',
-        icon: 'settings'
-      },
-      {
-        title: 'Welcome (Test)',
-        url: '/welcome',
-        icon: 'welcome'
+        title: 'Attendance',
+        url: '/list',
+        icon: 'list'
       }];
     }
     else {
@@ -75,16 +55,6 @@ export class AppComponent {
         icon: 'home'
       },
       {
-        title: 'Sign-In',
-        url: '/signin',
-        icon: ''
-      },
-      {
-        title: 'Sign-Up',
-        url: '/signup',
-        icon: ''
-      },
-      {
         title: 'About',
         url: '/about',
         icon: 'help'
@@ -98,17 +68,8 @@ export class AppComponent {
         title: 'Calendar',
         url: '/calendar',
         icon: 'calendar'
-      },
-      {
-        title: 'Settings',
-        url: '/settings',
-        icon: 'settings'
-      },
-      {
-        title: 'Welcome (Test)',
-        url: '/welcome',
-        icon: 'welcome'
       }];
+
     }
     this.initializeApp();
 
@@ -119,5 +80,14 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  signOut() {
+    this.dataService.setCurrentUser(
+      "",
+      "",
+      "member",
+      -1
+    );
   }
 }

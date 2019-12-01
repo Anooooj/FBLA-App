@@ -8,6 +8,8 @@ export class DataService {
   // BECAUSE OF REASONS: EVENT ID IS EVENT INDEX, EVENT IDS CANNOT BE THE SAME, EVENT NAMES CANNOT BE THE SAME, USER NAMES CANNOT BE THE SAME, USER IDS CANNOT BE THE SAME, USER ID IS USER INDEX
   // FOR THESE REASONS, USER NAMES SHOULD INCLUDE LAST NAME SINCE IT PREVENTS SAME NAME ERROR
 
+  private tos = false;
+
   private school = [];
 
   private currentUser =
@@ -133,6 +135,15 @@ export class DataService {
     //this.storage.set('events', this.events);
     //this.storage.set('attendance', this.attendance);
     //this.storage.set('members', this.members);
+
+    this.storage.get('tos').then((val) => {
+      if(val) {
+        this.tos = val;
+      }
+      else {
+        this.storage.set('tos', this.tos);
+      }
+    });
   }
 
   addEvent(event) {
@@ -147,9 +158,15 @@ export class DataService {
   getMembers() {
     return this.members;
   }
+
   addMember(member) {
     this.members.push(member);
     this.storage.set('members', this.members);
+    this.currentGenericAttendance.push({
+      name: member.name,
+      status: "not present"
+    });
+    this.storage.set('currentGenericAttendance', this.currentGenericAttendance);
   }
 
   getAttendance() {
@@ -211,6 +228,15 @@ export class DataService {
       id: tid
     };
     this.storage.set('currentUser', this.currentUser);
+  }
+
+  agreeToTOS() {
+    this.tos = true;
+    this.storage.set('tos', this.tos);
+  }
+
+  getTos() {
+    return this.tos;
   }
 
 }
