@@ -9,6 +9,8 @@ import { DataService } from '../services/data.service';
   styleUrls: ['join.page.scss'],
 })
 export class JoinPage {
+  error = '';
+
   constructor(private formBuilder: FormBuilder, public menuCtrl: MenuController, private dataService: DataService) {}
 
   registrationForm = this.formBuilder.group({
