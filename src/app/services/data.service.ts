@@ -133,15 +133,15 @@ export class DataService {
         this.storage.set('attendance', this.attendance);
       }
     });
-    this.storage.set('members', this.members);
-    //this.storage.get('members').then((val) => {
-    //  if(val) {
-    //    this.members = val;
-    //  }
-    //  else {
-    //    this.storage.set('members', this.members);
-    //  }
-    //});
+    //this.storage.set('members', this.members);
+    this.storage.get('members').then((val) => {
+      if(val) {
+        this.members = val;
+      }
+      else {
+        this.storage.set('members', this.members);
+      }
+    });
 
     //TEST
     //this.storage.set('currentUser', this.currentUser);
