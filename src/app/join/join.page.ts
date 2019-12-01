@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { DataService } from '../services/data.service';
 import { MenuController } from '@ionic/angular';
+import { DataService } from '../services/data.service';
 import { NavController } from '@ionic/angular';
-
 @Component({
   selector: 'app-join',
   templateUrl: 'join.page.html',
   styleUrls: ['join.page.scss'],
 })
 export class JoinPage {
-
   error = '';
-
+  password = '';
   constructor(private formBuilder: FormBuilder, public menuCtrl: MenuController, private dataService: DataService, public navCtrl: NavController) {
   }
 
@@ -35,14 +33,15 @@ export class JoinPage {
     password: [
       '',
       [
-        Validators.required,
-        Validators.minLength(5),
-        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$'),
+    //     Validators.required,
+    //     Validators.minLength(5),
+    //     Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$'),
       ]
     ],
     school: [
       '',
       [
+        // Validators.required,
       ]
     ],
     gender: [
@@ -89,6 +88,10 @@ export class JoinPage {
   // get zip() {
   //   return this.registrationForm.get('zip');
   // }
+//   var link = document.getElementById('getNumber'); // Gets the link
+// link.onclick = getNumber; // Runs the function on click
+//
+
   public errorMessages = {
       name: [
         { type: 'required', message: 'Name is required' },
@@ -103,9 +106,9 @@ export class JoinPage {
         { type: 'pattern', message: 'Please enter a valid phone number' }
       ],
       password: [
-        { type: 'required', message: 'Password is required' },
-        { type: 'minlength', message : 'Password cannot be shorter than 5 characters' },
-        { type: 'pattern', message: 'Password must contain letters (uppercase and lowercase), numbers, and special characters' },
+        // { type: 'required', message: 'Password is required' },
+        // { type: 'minlength', message : 'Password cannot be shorter than 5 characters' },
+        // { type: 'pattern', message: 'Password must contain letters (uppercase and lowercase), numbers, and special characters' }
       ],
       school: [
         { type: 'required', message: 'School is required' },
@@ -144,19 +147,23 @@ export class JoinPage {
     {
       var taken = false;
       this.dataService.getMembers().forEach(member => {
-        if (member.name == this.registrationForm.value.name) {
+        if (member.name == this.registrationForm.value.name && member.school == this.registrationForm.value.school) {
           taken = true;
           this.error = 'Account has already been created.';
         }
       });
       if (taken == false) {
-        this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: "Great Valley High School", id: this.dataService.getMembers().length, password: this.registrationForm.value.password});
-        this.error = '';
-        this.navCtrl.navigateForward('signin');
-      }
+          this.ionViewWillEnter();
+          this.dataService.addMember({name: this.registrationForm.value.name, type: 'member', school: "Great Valley High School", id: this.dataService.getMembers().length, password: this.password});
+          this.error = '';
+
+          this.navCtrl.navigateForward('signin');
+        }
     }
 
     ionViewWillEnter() {
       this.menuCtrl.enable(false);
+      this.password = Math.floor(Math.random() * (1000000) + 100000);
     }
+
 }
