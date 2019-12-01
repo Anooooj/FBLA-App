@@ -14,6 +14,8 @@ export class SigninPage implements OnInit {
   school: string = "";
   name: string = "";
   password: string = "";
+
+  error = '';
   constructor(public navCtrl: NavController, private dataService: DataService, public menuCtrl: MenuController, private storage: Storage
   ) { }
 
@@ -38,6 +40,9 @@ export class SigninPage implements OnInit {
             this.navCtrl.navigateForward('home');
           }
         }
+      }
+      else {
+        this.error = 'Invalid login';
       }
     });
   }
