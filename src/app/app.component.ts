@@ -24,58 +24,31 @@ export class AppComponent {
     private dataService: DataService,
     private storage: Storage
   ) {
-    this.storage.get('currentUser').then((user) => {
-      if (user.type !== 'member') {
-        this.appPages = [{
-          title: 'Home',
-          url: '/home',
-          icon: 'home'
-        },
-        {
-          title: 'About',
-          url: '/about',
-          icon: 'help'
-        },
-        {
-          title: 'Chapter Information',
-          url: '/chapter',
-          icon: 'school'
-        },
-        {
-          title: 'Calendar',
-          url: '/calendar',
-          icon: 'calendar'
-        },
-        {
-          title: 'Attendance',
-          url: '/list',
-          icon: 'list'
-        }];
-      }
-      else {
-        this.appPages = [{
-          title: 'Home',
-          url: '/home',
-          icon: 'home'
-        },
-        {
-          title: 'About',
-          url: '/about',
-          icon: 'help'
-        },
-        {
-          title: 'Chapter Information',
-          url: '/chapter',
-          icon: 'school'
-        },
-        {
-          title: 'Calendar',
-          url: '/calendar',
-          icon: 'calendar'
-        }];
-
-      }
-    });
+    this.appPages = [{
+      title: 'Home',
+      url: '/home',
+      icon: 'home'
+    },
+    {
+      title: 'About',
+      url: '/about',
+      icon: 'help'
+    },
+    {
+      title: 'Chapter Information',
+      url: '/chapter',
+      icon: 'school'
+    },
+    {
+      title: 'Calendar',
+      url: '/calendar',
+      icon: 'calendar'
+    },
+    {
+      title: 'Attendance',
+      url: '/list',
+      icon: 'list'
+    }];
     this.initializeApp();
 
   }
